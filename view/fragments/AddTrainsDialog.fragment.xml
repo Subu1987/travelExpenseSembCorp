@@ -1,0 +1,219 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:b="sap.suite.ui.commons"
+	xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form">
+	<Dialog class="sapUiPopupWithPadding" title="Add Trains" resizable="false" draggable="false" showHeader="true" horizontalScrolling="false"
+		contentWidth="650px">
+		<content>
+			<!--<Panel class="border-lineRadius">
+				<content>
+					<FlexBox width="100%" id="boxd" direction="Column" justifyContent="Center" backgroundDesign="Translucent">
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="fromTrain" placeholder="From Location" value="{trainData>/BOARD}" class="roundInput" required="true"/>
+							</f:content>
+							<f:content>
+								<Input id="toTrain" placeholder="To location" value="{trainData>/DESTINATION}" class="roundInput" required="true"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<DatePicker id="deprtDtrain" displayFormat="short" valueFormat="yyyy-MM-dd" value="{trainData>/DEPT_DATE}" class="round"
+									placeholder="Departure Date"/>
+							</f:content>
+							<f:content>
+								<DatePicker id="returnDtrain" displayFormat="short" valueFormat="yyyy-MM-dd" value="{trainData>/RETURN_DATE}" class="round"
+									placeholder="Return Date"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="ticketNoTrain" placeholder="Ticket no." value="{trainData>/TICKET_NO}"/>
+							</f:content>
+							<f:content>
+								<Input id="priceTrain" placeholder="Price Per Person" value="{trainData>/PRICE}"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Select id="trainClass" selectedKey="{trainData>/CLASS}" class="round">
+									<items>
+										<core:Item text="Class" key=""/>
+										<core:Item text="1A" key="1A"/>
+										<core:Item text="2A" key="2A"/>
+										<core:Item text="3A" key="3A"/>
+										<core:Item text="SL" key="SL"/>
+									</items>
+								</Select>
+							</f:content>
+							<f:content>
+								<StepInput id="passengerInputTrain" step="1" min="0" max="10" value="{trainData>/PERSONS}" width="100%" change="onPassengerChange"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="trainN" placeholder="Train Name" value="{trainData>/TRAIN_NAME}"/>
+							</f:content>
+							<f:content>
+								<Select id="quota" selectedKey="{trainData>/QUOTA}" class="round">
+									<items>
+										<core:Item text="Quota" key=""/>
+										<core:Item text="General" key="General"/>
+										<core:Item text="Tatkal" key="Tatkal"/>
+										<core:Item text="Lower Berth" key="Lower Berth"/>
+										<core:Item text="Ladies" key="Ladies"/>
+									</items>
+								</Select>
+							</f:content>
+						</form:SimpleForm>
+					</FlexBox>
+				</content>
+			</Panel>-->
+			<Panel class="border-lineRadius customIconTabBarPanel">
+				<IconTabBar expanded="true" applyContentPadding="false" expandable="false" upperCase="true" select="onTabSelectTrain">
+					<items>
+						<IconTabFilter id="DepartT" text="Departure" icon="sap-icon://redo">
+							<FlexBox width="100%" id="trainBox" direction="Column" justifyContent="Center" backgroundDesign="Translucent">
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="fromTrainReturn" placeholder="From Location" value="{trainData>/BOARD}" class="roundInput" required="true"/>
+									</f:content>
+									<f:content>
+										<Input id="toTrainReturn" placeholder="To location" value="{trainData>/DESTINATION}" class="roundInput" required="true"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<DatePicker id="deprtDtrainReturn" displayFormat="short" valueFormat="yyyy-MM-dd" value="{trainData>/DEPT_DATE}" class="round"
+											placeholder="Departure Date"/>
+									</f:content>
+									<f:content>
+										<DatePicker id="returnDtrainReturn" displayFormat="short" valueFormat="yyyy-MM-dd" value="{trainData>/RETURN_DATE}" class="round"
+											placeholder="Return Date"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="ticketNoTrainReturn" placeholder="Ticket no." value="{trainData>/TICKET_NO}"/>
+									</f:content>
+									<f:content>
+										<Input id="PNRNoTrainReturn" placeholder="PNR no." value="{trainData>/PNR_NO}"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="priceTrainReturn" placeholder="Price Per Person" value="{trainData>/PRICE}"/>
+									</f:content>
+									<f:content>
+										<!--<StepInput id="passengerInputTrainReturn" step="1" min="0" max="10" value="{trainData>/PERSONS}" width="100%" change="onPassengerChange"/>-->
+										<Input placeholder="No of Passenger" value="{trainData>/PERSONS}" width="100%" type="Number" liveChange="onPassengerChange"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Select id="trainClassReturn" selectedKey="{trainData>/CLASS}" class="round">
+											<items>
+												<core:Item text="Class" key=""/>
+												<core:Item text="1A" key="1A"/>
+												<core:Item text="2A" key="2A"/>
+												<core:Item text="3A" key="3A"/>
+												<core:Item text="SL" key="SL"/>
+											</items>
+										</Select>
+									</f:content>
+									<f:content>
+										<Select id="quotaReturn" selectedKey="{trainData>/QUOTA}" class="round">
+											<items>
+												<core:Item text="Quota" key=""/>
+												<core:Item text="General" key="General"/>
+												<core:Item text="Tatkal" key="Tatkal"/>
+												<core:Item text="Lower Berth" key="Lower Berth"/>
+												<core:Item text="Ladies" key="Ladies"/>
+											</items>
+										</Select>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="trainNReturn" placeholder="Train Name" value="{trainData>/TRAIN_NAME}"/>
+									</f:content>
+								</form:SimpleForm>
+							</FlexBox>
+						</IconTabFilter>
+						<IconTabSeparator icon="sap-icon://open-command-field" visible="{= ${tripInfo>/tripWay} === 'Round Trip' ? true : false}"></IconTabSeparator>
+						<IconTabFilter id="ReturnT" text="Return" icon="sap-icon://undo" visible="{= ${tripInfo>/tripWay} === 'Round Trip' ? true : false}">
+							<FlexBox width="100%" id="trainBoxReturn" direction="Column" justifyContent="Center" backgroundDesign="Translucent">
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="fromTrainReturnBack" placeholder="From Location" value="{trainDataReturn>/BOARD}" class="roundInput" required="true"/>
+									</f:content>
+									<f:content>
+										<Input id="toTrainReturnBack" placeholder="To location" value="{trainDataReturn>/DESTINATION}" class="roundInput" required="true"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<DatePicker id="deprtDtrainReturnBack" displayFormat="short" valueFormat="yyyy-MM-dd" value="{trainDataReturn>/DEPT_DATE}" class="round"
+											placeholder="Departure Date"/>
+									</f:content>
+									<f:content>
+										<DatePicker id="returnDtrainReturnBack" displayFormat="short" valueFormat="yyyy-MM-dd" value="{trainDataReturn>/RETURN_DATE}" class="round"
+											placeholder="Return Date"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="ticketNoTrainReturnBack" placeholder="Ticket no." value="{trainDataReturn>/TICKET_NO}"/>
+									</f:content>
+									<f:content>
+										<Input id="PNRNoTrainReturnBack" placeholder="PNR no." value="{trainDataReturn>/PNR_NO}"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="priceTrainReturnBack" placeholder="Price Per Person" value="{trainDataReturn>/PRICE}"/>
+									</f:content>
+									<f:content>
+										<!--	<StepInput id="passengerInputTrainReturnBack" step="1" min="0" max="10" value="{trainData>/PERSONS}" width="100%" change="onPassengerChange"/>-->
+										<Input placeholder="No of Passenger" value="{trainDataReturn>/PERSONS}" width="100%" type="Number" liveChange="onPassengerChange"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Select id="trainClassReturnBack" selectedKey="{trainDataReturn>/CLASS}" class="round">
+											<items>
+												<core:Item text="Class" key=""/>
+												<core:Item text="1A" key="1A"/>
+												<core:Item text="2A" key="2A"/>
+												<core:Item text="3A" key="3A"/>
+												<core:Item text="SL" key="SL"/>
+											</items>
+										</Select>
+									</f:content>
+									<f:content>
+										<Select id="quotaReturnBack" selectedKey="{trainDataReturn>/QUOTA}" class="round">
+											<items>
+												<core:Item text="Quota" key=""/>
+												<core:Item text="General" key="General"/>
+												<core:Item text="Tatkal" key="Tatkal"/>
+												<core:Item text="Lower Berth" key="Lower Berth"/>
+												<core:Item text="Ladies" key="Ladies"/>
+											</items>
+										</Select>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="trainNReturnBack" placeholder="Train Name" value="{trainDataReturn>/TRAIN_NAME}"/>
+									</f:content>
+								</form:SimpleForm>
+							</FlexBox>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</Panel>
+		</content>
+		<buttons>
+			<Button icon="" text="Save" press="saveTrains" type="Emphasized" class="sapUiSmallMarginEnd btnRound"/>
+			<Button text="Cancel" type="Emphasized" id="btnCancleTrains" press="onCancleTrains"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

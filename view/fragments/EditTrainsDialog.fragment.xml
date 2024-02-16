@@ -1,0 +1,77 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:b="sap.suite.ui.commons"
+	xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form">
+	<Dialog class="sapUiPopupWithPadding" title="Edit Flights" resizable="false" draggable="false" showHeader="true" horizontalScrolling="false"
+		contentWidth="650px">
+		<content>
+			<Panel class="border-lineRadius">
+				<content>
+					<FlexBox width="100%" id="editTrain" direction="Column" justifyContent="Center" backgroundDesign="Translucent">
+						<!--<Text text="hello"></Text>-->
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="fromEditTrain" placeholder="From Location" value="{trainDataMaster>/updateTrainData/BOARD}" class="roundInput" required="true"/>
+							</f:content>
+							<f:content>
+								<Input id="toEditTrain" placeholder="To location" value="{trainDataMaster>/updateTrainData/DESTINATION}" class="roundInput" required="true"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<DatePicker id="deprtDEditTrain" displayFormat="short" valueFormat="yyyy-MM-dd" value="{trainDataMaster>/updateTrainData/DEPT_DATE}" class="round" placeholder="Departure Date"/>
+							</f:content>
+							<f:content>
+								<DatePicker id="returnDEditTrain" displayFormat="short" valueFormat="yyyy-MM-dd" value="{trainDataMaster>/updateTrainData/RETURN_DATE}" class="round" placeholder="Return Date"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="ticketNoEditTrain" placeholder="Ticket no." value="{trainDataMaster>/updateTrainData/TICKET_NO}"/>
+							</f:content>
+							<f:content>
+								<Input id="priceEditTrain" placeholder="Price Per Person" value="{trainDataMaster>/updateTrainData/PRICE}"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Select id="trainClassEdit" selectedKey="{trainDataMaster>/updateTrainData/CLASS}" class="round">
+									<items>
+										<core:Item text="Class" key=""/>
+										<core:Item text="1A" key="1A"/>
+										<core:Item text="2A" key="2A"/>
+										<core:Item text="3A" key="3A"/>
+										<core:Item text="SL" key="SL"/>
+									</items>
+								</Select>
+							</f:content>
+							<f:content>
+								<Input placeholder="No of Passenger" value="{trainDataMaster>/updateTrainData/PERSONS}" width="100%" type="Number" liveChange="onPassengerChange"/>
+								<!--<Label text="Passenger Count"/>-->
+								<!--<StepInput id="passengerInputEditTrain" step="1" min="0" max="10" value="{trainData>/updateTrainData/PERSONS}" width="100%" change="onPassengerChange"/>-->
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="trainEdit" placeholder="Train Name" value="{trainDataMaster>/updateTrainData/TRAIN_NAME}"/>
+							</f:content>
+							<f:content>
+								<Select id="quotaEditTrain" selectedKey="{trainDataMaster>/updateTrainData/QUOTA}" class="round">
+									<items>
+										<core:Item text="Quota" key=""/>
+										<core:Item text="General" key="General"/>
+										<core:Item text="Tatkal" key="Tatkal"/>
+										<core:Item text="Lower Berth" key="Lower Berth"/>
+										<core:Item text="Ladies" key="Ladies"/>
+									</items>
+								</Select>
+							</f:content>
+						</form:SimpleForm>
+					</FlexBox>
+				</content>
+			</Panel>
+		</content>
+		<buttons>
+			<Button icon="" text="Update" press="updateTrain" type="Emphasized" class="sapUiSmallMarginEnd btnRound"/>
+			<Button text="Cancel" type="Emphasized" id="btnCae0" press="onCancelEditTrain"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

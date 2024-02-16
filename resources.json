@@ -1,0 +1,171 @@
+{
+    "resources": [
+        {
+            "name": "controller/BaseController.js"
+        },
+        {
+            "name": "controller/NotFound.controller.js"
+        },
+        {
+            "name": "controller/Home.controller.js"
+        },
+        {
+            "name": "controller/tilePages/TripForApprovalToFinance.controller.js"
+        },
+        {
+            "name": "controller/tilePages/AdvanceRequestsHistory.controller.js"
+        },
+        {
+            "name": "controller/tilePages/EscalationFromFinance.controller.js"
+        },
+        {
+            "name": "controller/tilePages/TripForApproval.controller.js"
+        },
+        {
+            "name": "controller/tilePages/AlreadyApprovedTrip.controller.js"
+        },
+        {
+            "name": "controller/tilePages/CreateTrip.controller.js"
+        },
+        {
+            "name": "controller/tilePages/RejectedTrip.controller.js"
+        },
+        {
+            "name": "controller/tilePages/AdvanceRequests.controller.js"
+        },
+        {
+            "name": "controller/tilePages/AlreadyCompletedTrip.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "view/nestedViews/accomodation.view.xml"
+        },
+        {
+            "name": "view/nestedViews/WizardReviewPage.view.xml"
+        },
+        {
+            "name": "view/nestedViews/TripInformation.view.xml"
+        },
+        {
+            "name": "view/nestedViews/Flight_Train.view.xml"
+        },
+        {
+            "name": "view/nestedViews/Carpool.view.xml"
+        },
+        {
+            "name": "view/nestedViews/TravellerDetails.view.xml"
+        },
+        {
+            "name": "view/NotFound.view.xml"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "view/tilePages/EscalationFromFinance.view.xml"
+        },
+        {
+            "name": "view/tilePages/TripForApprovalToFinance.view.xml"
+        },
+        {
+            "name": "view/tilePages/Header.view.xml"
+        },
+        {
+            "name": "view/tilePages/AlreadyApprovedTrip.view.xml"
+        },
+        {
+            "name": "view/tilePages/AlreadyCompletedTrip.view.xml"
+        },
+        {
+            "name": "view/tilePages/AdvanceRequests.view.xml"
+        },
+        {
+            "name": "view/tilePages/RejectedTrip.view.xml"
+        },
+        {
+            "name": "view/tilePages/TripForApproval.view.xml"
+        },
+        {
+            "name": "view/tilePages/CreateTrip.view.xml"
+        },
+        {
+            "name": "view/tilePages/AdvanceRequestsHistory.view.xml"
+        },
+        {
+            "name": "view/Home.view.xml"
+        },
+        {
+            "name": "view/fragments/CreateRequestAdvance.fragment.xml"
+        },
+        {
+            "name": "view/fragments/ProfilePopUp.fragment.xml"
+        },
+        {
+            "name": "view/fragments/AddFlightsDialog.fragment.xml"
+        },
+        {
+            "name": "view/fragments/AddTrainsDialog.fragment.xml"
+        },
+        {
+            "name": "view/fragments/EditTrainsDialog.fragment.xml"
+        },
+        {
+            "name": "view/fragments/AddHotelsDialog.fragment.xml"
+        },
+        {
+            "name": "view/fragments/FilterDialog.fragment.xml"
+        },
+        {
+            "name": "view/fragments/EditFlightsDialog.fragment.xml"
+        },
+        {
+            "name": "view/fragments/TravellerTypeDialog.fragment.xml"
+        },
+        {
+            "name": "view/fragments/EditHotelsDialog.fragment.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "images/bg.jpg"
+        },
+        {
+            "name": "images/bg7.jpg"
+        },
+        {
+            "name": "images/bg8.jpg"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "model/data.json"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "neo-app.json"
+        }
+    ]
+}

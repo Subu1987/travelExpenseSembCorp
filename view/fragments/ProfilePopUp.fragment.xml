@@ -1,0 +1,78 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:l="sap.ui.layout">
+	<Popover id="individualPopover" class="PopOver" title="Profile" placement="Left" contentWidth="320px" contentHeight="auto" visible="true">
+		<FlexBox height="100%" width="100%" direction="Column" justifyContent="SpaceAround" class="sapUiSmallMarginTopBottom">
+			<FlexBox justifyContent="SpaceAround" alignItems="Center" class="sapUiSmallMarginBeginEnd profileBox">
+<!--				<Avatar src="images/pp.jpg" displaySize="L"/>-->
+				<VBox justifyContent="Center" alignItems="Center">
+					<Title text="{employeeData>/0/EMP_NAME}" level="H4" titleStyle="H4"/>
+					<Text text="{employeeData>/0/COMPANY_CODE}"></Text>
+				</VBox>
+			</FlexBox>
+			<FlexBox justifyContent="SpaceBetween" height="auto" class="sapUiSmallMarginBeginEnd profileBox">
+				<HBox justifyContent="Start" width="30%">
+					<Title text="Branch"/>
+				</HBox>
+				<HBox width="60%">
+					<Text text="{employeeData>/0/BRANCH}"/>
+				</HBox>
+			</FlexBox>
+			<FlexBox justifyContent="SpaceBetween" height="auto" class="sapUiSmallMarginBeginEnd profileBox">
+				<HBox width="30%">
+					<Title text="Designation"/>
+				</HBox>
+				<HBox width="60%">
+					<Text text="{employeeData>/0/DESIGNATION}"/>
+				</HBox>
+			</FlexBox>
+			<FlexBox justifyContent="SpaceBetween" height="auto" class="sapUiSmallMarginBeginEnd profileBox">
+				<HBox width="30%">
+					<Title text="Grade"/>
+				</HBox>
+				<HBox width="60%">
+					<Text text="{employeeData>/0/GRADE}"/>
+				</HBox>
+			</FlexBox>
+			<FlexBox justifyContent="SpaceBetween" height="auto" class="sapUiSmallMarginBeginEnd profileBox">
+				<HBox width="30%">
+					<Title text="Emp Id"/>
+				</HBox>
+				<HBox width="60%">
+					<Text text="{employeeData>/0/EMPID}"/>
+				</HBox>
+			</FlexBox>
+			<FlexBox justifyContent="SpaceBetween" height="auto" class="sapUiSmallMarginBeginEnd profileBox">
+				<HBox width="30%">
+					<Title text="Gender"/>
+				</HBox>
+				<HBox width="60%">
+					<Text text="{employeeData>/0/GENDER}"/>
+				</HBox>
+			</FlexBox>
+			<FlexBox justifyContent="SpaceBetween" wrap="Wrap" height="auto" class="sapUiSmallMarginBeginEnd profileBox">
+				<HBox width="30%">
+					<Title text="Email Id"/>
+				</HBox>
+				<HBox width="60%">
+					<Text text="{employeeData>/0/EMP_MAIL}"/>
+				</HBox>
+			</FlexBox>
+			<FlexBox justifyContent="SpaceBetween" height="auto" class="sapUiSmallMarginBeginEnd profileBox">
+				<HBox width="30%">
+					<Title text="Mobile No."/>
+				</HBox>
+				<HBox width="60%">
+					<Text text="{employeeData>/0/EMP_MOBILE1}, {employeeData>/0/EMP_MOBILE2}"/>
+				</HBox>
+			</FlexBox>
+			<FlexBox justifyContent="SpaceBetween" height="auto" class="sapUiSmallMarginBeginEnd profileBox">
+				<HBox width="30%">
+					<Title text="Address"/>
+				</HBox>
+				<HBox wrap="Wrap" width="60%">
+					<Text text="{employeeData>/0/ADDRESS1}, {employeeData>/0/ADDRESS2}"/>
+					<!--<Text text="{employeeData>/0/ADDRESS2}"/>-->
+				</HBox>
+			</FlexBox>
+		</FlexBox>
+	</Popover>
+</core:FragmentDefinition>

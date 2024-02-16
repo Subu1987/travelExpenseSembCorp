@@ -1,0 +1,17 @@
+<mvc:View
+	controllerName="com.TitagarhTravel_Expence_Management.controller.NotFound"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+
+	<MessagePage
+		title="Not Found"
+		text="The requested resource was not found"
+		icon="{sap-icon://document}"
+		id="page"
+		description="">
+		<customDescription>
+			<Link id="link" text="{i18n>backToWorklist}" press="onLinkPressed" />
+		</customDescription>
+	</MessagePage>
+
+</mvc:View>

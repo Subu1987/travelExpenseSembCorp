@@ -1,0 +1,267 @@
+{
+    "_version": "1.7.0",
+    "sap.app": {
+        "id": "com.TitagarhTravel_Expence_Management",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "servicecatalog.connectivityComponent",
+            "version": "0.0.0"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZTRAVEL_MANAGEMENT_APP_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "com.TitagarhTravel_Expence_Management.view.App",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.collaboration": {},
+                "sap.m": {},
+                "sap.tnt": {
+                    "minVersion": ""
+                },
+                "sap.ui.comp": {},
+                "sap.ui.core": {},
+                "sap.ui.layout": {},
+                "sap.ushell": {},
+                "sap.uxap": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.TitagarhTravel_Expence_Management.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "useBatch": false
+                }
+            },
+            "globalEmployeeData": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "CountryNameData": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "globalData": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "employeeData": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "tripInfo": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "travellerDetails": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "guestData": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "flightData": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "flightDataReturn": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "flightDataMaster": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "trainData": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "trainDataReturn": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "trainDataMaster": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "hotelData": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "carPoolData": {
+                "type": "sap.ui.model.json.JSONModel"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "com.TitagarhTravel_Expence_Management.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "clearAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "home",
+                    "pattern": "",
+                    "target": "home"
+                },
+                {
+                    "name": "createtrip",
+                    "pattern": "createtrip/{directReload}",
+                    "target": "createtrip"
+                },
+                {
+                    "name": "tripForApproval",
+                    "pattern": "tripForApproval",
+                    "target": "tripForApproval"
+                },
+                {
+                    "name": "alreadyApprovedTrip",
+                    "pattern": "alreadyApprovedTrip",
+                    "target": "alreadyApprovedTrip"
+                },
+                {
+                    "name": "tripForApprovalToFinance",
+                    "pattern": "tripForApprovalToFinance",
+                    "target": "tripForApprovalToFinance"
+                },
+                {
+                    "name": "rejectedTrip",
+                    "pattern": "rejectedTrip",
+                    "target": "rejectedTrip"
+                },
+                {
+                    "name": "alreadyCompletedTrip",
+                    "pattern": "alreadyCompletedTrip",
+                    "target": "alreadyCompletedTrip"
+                },
+                {
+                    "name": "notFoundPage",
+                    "pattern": "notFoundPage",
+                    "target": "notFoundPage"
+                },
+                {
+                    "name": "advanceRequests",
+                    "pattern": "advanceRequests",
+                    "target": "advanceRequests"
+                },
+                {
+                    "name": "advanceRequestsHistory",
+                    "pattern": "advanceRequestsHistory",
+                    "target": "advanceRequestsHistory"
+                },
+                {
+                    "name": "escalationFromFinance",
+                    "pattern": "escalationFromFinance",
+                    "target": "escalationFromFinance"
+                }
+            ],
+            "targets": {
+                "home": {
+                    "viewName": "Home",
+                    "viewLevel": 1
+                },
+                "createtrip": {
+                    "viewName": "tilePages/CreateTrip",
+                    "viewLevel": 2
+                },
+                "tripForApproval": {
+                    "viewType": "XML",
+                    "viewName": "tilePages/TripForApproval",
+                    "viewLevel": 2
+                },
+                "alreadyApprovedTrip": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "tilePages/AlreadyApprovedTrip",
+                    "viewLevel": 2
+                },
+                "tripForApprovalToFinance": {
+                    "viewType": "XML",
+                    "viewName": "tilePages/TripForApprovalToFinance",
+                    "viewLevel": 2
+                },
+                "rejectedTrip": {
+                    "viewType": "XML",
+                    "viewName": "tilePages/RejectedTrip",
+                    "viewLevel": 2
+                },
+                "alreadyCompletedTrip": {
+                    "viewType": "XML",
+                    "viewName": "tilePages/AlreadyCompletedTrip",
+                    "viewLevel": 2
+                },
+                "notFoundPage": {
+                    "viewType": "XML",
+                    "viewName": "NotFound"
+                },
+                "advanceRequests": {
+                    "viewType": "XML",
+                    "viewName": "tilePages/AdvanceRequests",
+                    "viewLevel": 2
+                },
+                "advanceRequestsHistory": {
+                    "viewType": "XML",
+                    "viewName": "tilePages/AdvanceRequestsHistory",
+                    "viewLevel": 3
+                },
+                "escalationFromFinance": {
+                    "viewType": "XML",
+                    "viewName": "tilePages/EscalationFromFinance",
+                    "viewLevel": 2
+                }
+            }
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/ztravel_exp_emp",
+        "_version": "1.1.0"
+    }
+}

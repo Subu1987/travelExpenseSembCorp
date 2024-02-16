@@ -1,0 +1,211 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:b="sap.suite.ui.commons"
+	xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form">
+	<Dialog class="sapUiPopupWithPadding" title="Add Flights" resizable="false" draggable="false" showHeader="true" horizontalScrolling="false"
+		contentWidth="650px">
+		<content>
+			<!--<Panel class="border-lineRadius">
+				<content>
+					<FlexBox width="100%" id="flightbox" direction="Column" justifyContent="Center">
+						
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="from" placeholder="From Location" value="{flightData>/DEPART_FROM}" class="roundInput" required="true"/>
+							</f:content>
+							<f:content>
+								<Input id="to" placeholder="To location" value="{flightData>/ARRIVE_AT}" class="roundInput" required="true"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<DatePicker id="deprtD" displayFormat="short" valueFormat="yyyy-MM-dd" value="{flightData>/DEPT_DATE}" class="round"
+									placeholder="Departure Date"/>
+							</f:content>
+							<f:content>
+								<DatePicker id="returnD" displayFormat="short" valueFormat="yyyy-MM-dd" value="{flightData>/RETURN_DATE}" class="round"
+									placeholder="Return Date"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="ticketNo" placeholder="Ticket no." value="{flightData>/TICKET_NO}"/>
+							</f:content>
+							<f:content>
+								<Input id="price" placeholder="Price Per Person" value="{flightData>/PRICE}"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Select id="cabinClass" selectedKey="{flightData>/CABIN_CLASS}" class="round">
+									<items>
+										<core:Item text="Choose Cabin Class" key=""/>
+										<core:Item text="Economy" key="Economy"/>
+										<core:Item text="Premium Economy" key="Premium Economy"/>
+										<core:Item text="Business" key="Business"/>
+									</items>
+								</Select>
+							</f:content>
+							<f:content>
+								
+								<StepInput id="passengerInput" step="1" min="0" max="10" value="{flightData>/PERSONS}" width="100%" change="onPassengerChange"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="airline" placeholder="Airline Name" value="{flightData>/AIRLINE_NAME}"/>
+							</f:content>
+							<f:content>
+								<Select id="stops" selectedKey="{flightData>/STOPS}" class="round">
+									<items>
+										<core:Item text="Stops" key=""/>
+										<core:Item text="Non Stop" key="Non Stop"/>
+										<core:Item text="1 Stop" key="1 Stop"/>
+										<core:Item text="1+ Stop" key="1+ Stop"/>
+									</items>
+								</Select>
+							</f:content>
+						</form:SimpleForm>
+					</FlexBox>
+				</content>
+			</Panel>-->
+			<Panel class="border-lineRadius customIconTabBarPanel" width="100%">
+				<IconTabBar expanded="true" applyContentPadding="false" expandable="false" upperCase="true" select="onTabSelectFlight">
+					<items>
+						<IconTabFilter id="DepartF" text="Departure" icon="sap-icon://redo">
+							<FlexBox width="100%" id="flightboxRound" direction="Column" justifyContent="Center">
+								<!--<Text text="hello"></Text>-->
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="fromRound" placeholder="From Location" value="{flightData>/DEPART_FROM}" class="roundInput" required="true"/>
+									</f:content>
+									<f:content>
+										<Input id="toRound" placeholder="To location" value="{flightData>/ARRIVE_AT}" class="roundInput" required="true"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<DatePicker id="deprtDRound" displayFormat="short" valueFormat="yyyy-MM-dd" value="{flightData>/DEPT_DATE}" class="round"
+											placeholder="Departure Date"/>
+									</f:content>
+									<f:content>
+										<DatePicker id="returnDRound" displayFormat="short" valueFormat="yyyy-MM-dd" value="{flightData>/RETURN_DATE}" class="round"
+											placeholder="Return Date"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="ticketNoRound" placeholder="Ticket no." value="{flightData>/TICKET_NO}"/>
+									</f:content>
+									<f:content>
+										<Input id="priceRound" placeholder="Price Per Person" value="{flightData>/PRICE}"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Select id="cabinClassRound" selectedKey="{flightData>/CABIN_CLASS}" class="round">
+											<items>
+												<core:Item text="Choose Cabin Class" key=""/>
+												<core:Item text="Economy" key="Economy"/>
+												<core:Item text="Premium Economy" key="Premium Economy"/>
+												<core:Item text="Business" key="Business"/>
+											</items>
+										</Select>
+									</f:content>
+									<f:content>
+										<Input placeholder="No of Passenger" value="{flightData>/PERSONS}" width="100%" type="Number" liveChange="onPassengerChange"/>
+										<!--<Button text="Next" press="onNextStep"/>
+										<Button text="Previous" press="onPreviousStep"/>-->
+										<!--<Label text="Passenger Count"/>-->
+										<!--<StepInput id="passengerInputRound" step="1" min="0" max="10" value="{flightData>/PERSONS}" width="100%" change="onPassengerChange"/>-->
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="airlineRound" placeholder="Airline Name" value="{flightData>/AIRLINE_NAME}"/>
+									</f:content>
+									<f:content>
+										<Select id="stopsRound" selectedKey="{flightData>/STOPS}" class="round">
+											<items>
+												<core:Item text="Stops" key=""/>
+												<core:Item text="Non Stop" key="Non Stop"/>
+												<core:Item text="1 Stop" key="1 Stop"/>
+												<core:Item text="1+ Stop" key="1+ Stop"/>
+											</items>
+										</Select>
+									</f:content>
+								</form:SimpleForm>
+							</FlexBox>
+						</IconTabFilter>
+						<IconTabSeparator icon="sap-icon://open-command-field" visible="{= ${tripInfo>/tripWay} === 'Round Trip' ? true : false}"/>
+						<IconTabFilter id="ReturnF" text="Return" icon="sap-icon://undo" visible="{= ${tripInfo>/tripWay} === 'Round Trip' ? true : false}">
+							<FlexBox width="100%" id="flightboxRoundBack" direction="Column" justifyContent="Center">
+								<!--<Text text="hello"></Text>-->
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="fromRoundBack" placeholder="From Location" value="{flightDataReturn>/DEPART_FROM}" class="roundInput" required="true"/>
+									</f:content>
+									<f:content>
+										<Input id="toRoundBack" placeholder="To location" value="{flightDataReturn>/ARRIVE_AT}" class="roundInput" required="true"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<DatePicker id="deprtDRoundBack" displayFormat="short" valueFormat="yyyy-MM-dd" value="{flightDataReturn>/DEPT_DATE}" class="round"
+											placeholder="Departure Date"/>
+									</f:content>
+									<f:content>
+										<DatePicker id="returnDRoundBack" displayFormat="short" valueFormat="yyyy-MM-dd" value="{flightDataReturn>/RETURN_DATE}" class="round"
+											placeholder="Return Date"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="ticketNoRoundBack" placeholder="Ticket no." value="{flightDataReturn>/TICKET_NO}"/>
+									</f:content>
+									<f:content>
+										<Input id="priceRoundBack" placeholder="Price Per Person" value="{flightDataReturn>/PRICE}"/>
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Select id="cabinClassRoundBack" selectedKey="{flightDataReturn>/CABIN_CLASS}" class="round">
+											<items>
+												<core:Item text="Choose Cabin Class" key=""/>
+												<core:Item text="Economy" key="Economy"/>
+												<core:Item text="Premium Economy" key="Premium Economy"/>
+												<core:Item text="Business" key="Business"/>
+											</items>
+										</Select>
+									</f:content>
+									<f:content>
+										<Input placeholder="No of Passenger" value="{flightDataReturn>/PERSONS}" width="100%" type="Number" liveChange="onPassengerChange"/>
+										<!--<Label text="Passenger Count"/>-->
+										<!--<StepInput id="passengerInputRoundBack" step="1" min="0" max="10" value="{flightData>/PERSONS}" width="100%" change="onPassengerChange"/>-->
+									</f:content>
+								</form:SimpleForm>
+								<form:SimpleForm editable="true">
+									<f:content>
+										<Input id="airlineRoundBack" placeholder="Airline Name" value="{flightDataReturn>/AIRLINE_NAME}"/>
+									</f:content>
+									<f:content>
+										<Select id="stopsRoundBack" selectedKey="{flightDataReturn>/STOPS}" class="round">
+											<items>
+												<core:Item text="Stops" key=""/>
+												<core:Item text="Non Stop" key="Non Stop"/>
+												<core:Item text="1 Stop" key="1 Stop"/>
+												<core:Item text="1+ Stop" key="1+ Stop"/>
+											</items>
+										</Select>
+									</f:content>
+								</form:SimpleForm>
+							</FlexBox>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</Panel>
+		</content>
+		<buttons>
+			<Button text="Save" press="saveFlights" type="Emphasized" class="sapUiSmallMarginEnd btnRound"/>
+			<Button text="Cancel" type="Emphasized" id="btnCance0" press="onCancelFlights"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

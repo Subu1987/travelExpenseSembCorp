@@ -1,0 +1,78 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:b="sap.suite.ui.commons" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form">
+	<Dialog class="sapUiPopupWithPadding" title="Create Request Advance" resizable="false" draggable="false" showHeader="true" horizontalScrolling="false" contentWidth="650px">
+		<content>
+			<Panel>
+				<content>
+					<FlexBox width="100%" justifyContent="Center" direction="Column" alignItems="Center">
+						
+						<FlexBox id="guestId" width="85%" justifyContent="Center" direction="Column">
+						    <form:SimpleForm editable="true" width="100%">
+								<f:content>
+								    <Input placeholder="" value="Requested By Subrato Saha" editable="false"/>
+									
+								</f:content>
+								<!--<f:content>
+									<Input placeholder="Trip No." value="" class="roundInput"/>
+								</f:content>-->
+							</form:SimpleForm>
+							<form:SimpleForm editable="true">
+								<!--<f:content>
+								    <Text text=""></Text>
+								    <Input placeholder="" value="Requested By Subrato Saha" editable="false"></Input>
+									
+								</f:content>-->
+								<f:content>
+									<Input placeholder="Trip No." value="" class="roundInput"/>
+								</f:content>
+							</form:SimpleForm>
+							<!--<form:SimpleForm editable="true">
+								<f:content>
+									<Select id="gender" selectedKey="{gender}" class="round">
+										<items>
+											<core:Item text="Gender" key=""/>
+											<core:Item text="Male" key="Male"/>
+											<core:Item text="Female" key="Female"/>
+											<core:Item text="Others" key="Others"/>
+										</items>
+									</Select>
+								</f:content>
+								<f:content>
+									<Input placeholder="Age" value=""/>
+								</f:content>
+							</form:SimpleForm>-->
+							<form:SimpleForm editable="true">
+								<f:content>
+									<DatePicker id="D1" displayFormat="long" value="" class="round"/>
+								</f:content>
+								<f:content>
+									<Input placeholder="Amount" value=""/>
+									
+								</f:content>
+							</form:SimpleForm>
+							<form:SimpleForm editable="true">
+								<f:content>
+									<TextArea id="__area1" placeholder="Reason" value="" class="round"/>
+								</f:content>
+							</form:SimpleForm>
+							<!--<form:SimpleForm editable="true">
+								<f:content>
+									<Input placeholder="Trip Cost Center" value=""/>
+								</f:content>
+								<f:content>
+									<Input placeholder="Event Code" value=""/>
+								</f:content>
+							</form:SimpleForm>-->
+							<HBox width="100%" justifyContent="End">
+								<Button text="Reset" class="sapUiTinyMarginEnd"/>
+								<Button text="Save for Approval" class="sapUiSmallMarginEnd smallIconForCreateTrip"/>
+							</HBox>
+						</FlexBox>
+					</FlexBox>
+				</content>
+			</Panel>
+		</content>
+		<buttons>
+			<Button text="Cancel" type="Emphasized" id="btnC" press="onCancelAdvanceRequest"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

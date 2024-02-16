@@ -1,0 +1,144 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" controllerName="com.TitagarhTravel_Expence_Management.controller.tilePages.CreateTrip">
+	<Panel headerText="" class="sapUiResponsiveMargin border-lineRadius" width="auto">
+		<content>
+			<FlexBox width="100%" id="__box1" height="100%" justifyContent="Center" direction="Column" alignItems="Center">
+				<!--<Text text="hello"/>-->
+				<items>
+					<FlexBox width="85%" id="tripRadioBtn" justifyContent="Center" class="radioBtnCssRound" alignItems="Center" alignContent="Center" visible="true">
+						<FlexBox justifyContent="Center">
+							<RadioButtonGroup id="travelType" columns="5" class="sapUiMediumMarginBottom" select="onRadioButtonSelectTravel">
+								<RadioButton id="Domesticravel" text="Domestic Travel" visible="{= ${employeeData>/0/TRAVEL_TYPE} === '1' || ${employeeData>/0/TRAVEL_TYPE} === '3' ? true : false}"/>
+								<RadioButton id="Internationalravel" text="International Travel" visible="{= ${employeeData>/0/TRAVEL_TYPE} === '2' || ${employeeData>/0/TRAVEL_TYPE} === '3' ? true : false}"/>
+							</RadioButtonGroup>
+						</FlexBox>
+						<FlexBox>
+							<RadioButtonGroup id="tripWay" columns="5" class="sapUiMediumMarginBottom">
+								<RadioButton id="oneWay" text="One Way"/>
+								<RadioButton id="roundTrip" text="Round Trip"/>
+							</RadioButtonGroup>
+						</FlexBox>
+					</FlexBox>
+					<FlexBox width="90%" id="tripEdit" direction="Column" justifyContent="Center" visible="true">
+						<!--<Text text="hello1"/>-->
+						<form:SimpleForm id="interTravelView" editable="true" visible="false">
+							<f:content>
+								<core:Title text=""/>
+								<Label text="From Destination"/>
+								<ComboBox xmlns="sap.m" id="fromTrip" items="{CountryNameData>/}" change="onComboBoxChange">
+									<items>
+										<core:Item xmlns:core="sap.ui.core" key="{CountryNameData>Code}" text="{CountryNameData>Name}" />
+									</items>
+								</ComboBox>
+							</f:content>
+							<f:content>
+								<core:Title text=""/>
+								<Label text="To Destination"/>
+								<ComboBox xmlns="sap.m" id="toTrip" items="{CountryNameData>/}">
+									<items>
+										<core:Item xmlns:core="sap.ui.core" key="{CountryNameData>Code}" text="{CountryNameData>Name}"/>
+									</items>
+								</ComboBox>
+							</f:content>
+						</form:SimpleForm>
+						<f:SimpleForm id="SimpleFormChange480_Trial" editable="true">
+							<f:content>
+								<core:Title text=""/>
+								<Label text="From Location"/>
+								<!--<Input id="fromLocationTrip" placeholder="" value="{/tripInfo/fromLocation}" class="roundInput"/>-->
+								<ComboBox xmlns="sap.m" id="fromLocation" items="{CountryNameData>/}" change="onComboBoxChange">
+									<items>
+										<core:Item xmlns:core="sap.ui.core" key="{CountryNameData>Code}" text="{CountryNameData>Name}"/>
+									</items>
+								</ComboBox>
+								<Label text="Start Date"/>
+								<DatePicker id="DP31" displayFormat="long" value="{tripInfo>/startDate}" class="round"/>
+								<Label text="Purpose" width="100%"/>
+								<Select id="countr" selectedKey="{tripInfo>/purpose}" class="round">
+									<items>
+										<core:Item text="Select" key=""/>
+										<core:Item text="Business Travel" key="Business Travel"/>
+										<core:Item text="Solo Travel" key="Solo Travel"/>
+									</items>
+								</Select>
+							</f:content>
+							<f:content>
+								<core:Title text=""/>
+								<Label text="To Location"/>
+								<ComboBox xmlns="sap.m" id="toLocation" items="{CountryNameData>/}" change="onComboBoxChange">
+									<items>
+										<core:Item xmlns:core="sap.ui.core" key="{CountryNameData>Code}" text="{CountryNameData>Name}"/>
+									</items>
+								</ComboBox>
+								<Label text="End Date"/>
+								<DatePicker id="DP311" displayFormat="long" value="{tripInfo>/endDate}" class="round"/>
+								<Label text="Trip For"/>
+								<Select id="countr1" selectedKey="{tripInfo>/tripFor}" class="round">
+									<items>
+										<core:Item text="Select" key=""/>
+										<core:Item text="Self" key="Self"/>
+										<core:Item text="Others" key="Others"/>
+									</items>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<core:Title text=""/>
+								<Label text="Trip Cost Center"/>
+								<Input placeholder="" value="{tripInfo>/costCenter}" class="roundInput"/>
+							</f:content>
+							<f:content>
+								<core:Title text=""/>
+								<Label text="Travel Details"/>
+								<TextArea id="__area1" value="{tripInfo>/travelDetails}" class="round"/>
+							</f:content>
+						</form:SimpleForm>
+					</FlexBox>
+					<FlexBox width="90%" height="250px" id="tripView" wrap="Wrap" justifyContent="Start" alignItems="Center" visible="false">
+						<HBox width="25%" direction="Column">
+							<Label text="Travel Type"/>
+							<Title text="{tripInfo>/travelType}" titleStyle="H5"/>
+						</HBox>
+						<HBox width="25%" direction="Column">
+							<Label text="Trip"/>
+							<Title text="{tripInfo>/tripWay}" titleStyle="H5"/>
+							
+						</HBox>
+						<HBox width="25%" direction="Column">
+							<Label text="From Location"/>
+							<Title text="{tripInfo>/fromLocation}" titleStyle="H5"/>
+						</HBox>
+						<HBox width="25%" direction="Column">
+							<Label text="To Location"/>
+							<Title text="{tripInfo>/toLocation}" titleStyle="H5"/>
+						</HBox>
+						<HBox width="25%" direction="Column">
+							<Label text="Strt Date"/>
+							<Title text="{tripInfo>/startDate}" level="H5"/>
+						</HBox>
+						<HBox width="25%" direction="Column">
+							<Label text="End Dte"/>
+								<Title text="{tripInfo>/endDate}" level="H5"/>
+						</HBox>
+						<HBox width="25%" direction="Column">
+							<Label text="Purpose"/>
+								<Title text="{tripInfo>/purpose}" titleStyle="H5"/>
+						</HBox>
+						<HBox width="25%" direction="Column">
+							<Label text="Trip Cost Center"/>
+								<Title text="{tripInfo>/costCenter}" titleStyle="H5"/>
+						</HBox>
+						<HBox width="auto" direction="Column">
+							<Label text="Travel Details"/>
+								<Title text="{tripInfo>/travelDetails}" wrapping="true" titleStyle="H5"/>
+						</HBox>
+					</FlexBox>
+					<FlexBox width="100%" justifyContent="End" visible="true">
+						<Button id="editTripInfo" icon="sap-icon://edit" text="Edit" iconFirst="false" type="Emphasized" visible="false" class="sapUiTinyMarginEnd smallIcon" press="editTrip"/>
+						<Button id="saveTripInfo" icon="sap-icon://save" text="Save" iconFirst="false" type="Emphasized" class="smallIcon" press="saveTrip"/>
+					</FlexBox>
+				</items>
+			</FlexBox>
+		</content>
+	</Panel>
+</mvc:View>

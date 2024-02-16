@@ -1,0 +1,250 @@
+<mvc:View xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" controllerName="com.TitagarhTravel_Expence_Management.controller.tilePages.CreateTrip">
+	<Panel headerText="" class="sapUiResponsiveMargin" width="95%">
+		<content>
+			<FlexBox width="100%" id="__b1" height="100%" justifyContent="Center" direction="Column" alignItems="Center">
+				<Panel>
+					<content>
+						<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center">
+							<HBox>
+								<Title text="1. Trip Information" titleStyle="H3"/>
+							</HBox>
+							<HBox justifyContent="Start">
+								<Button text="Edit" type="Emphasized"/>
+							</HBox>
+						</FlexBox>
+						<FlexBox width="100%" id="_box1" height="auto" justifyContent="Center" direction="Column" alignItems="Center" class="border-lineRadius">
+							<!--<Text text="hello"/>-->
+							<items>
+								<FlexBox width="90%" id="tripView" justifyContent="Center" direction="Column" alignContent="Center">
+									<FlexBox>
+										<HBox>
+											<Label text="Travel Type"/>
+											<Title text="{tripInfo>/travelType}"/>
+										</HBox>
+										<HBox>
+											<Label text="Trip"/>
+											<Title text="{tripInfo>/tripWay}"/>
+											<Label text="From Location"/>
+											<Title text="{tripInfo>/fromLocation}"/>
+										</HBox>
+										<HBox>
+											<Label text="From Location"/>
+											<Title text="{tripInfo>/fromLocation}"/>
+										</HBox>
+										<HBox>
+											<Label text="To Location"/>
+											<Title text="{tripInfo>/toLocation}"/>
+										</HBox>
+									</FlexBox>
+								</FlexBox>
+							</items>
+						</FlexBox>
+					</content>
+					<!--<content>
+						<HBox width="100%" class="sapUiSmallMarginTopBottom">
+							<Title text="2. Traveller Details" titleStyle="H3"/>
+						</HBox>
+						<Panel class="border-lineRadius">
+							<List id="expandableList" items="{/employees}">
+								<items>
+									<CustomListItem>
+										<Panel headerText="{title} ({travellerType})" expanded="{expanded}" expand="onExpandCollapse" expandable="false">
+											<content>
+												<FlexBox width="100%" height="100%" id="__bx3" justifyContent="Center">
+													<FlexBox width="100%" height="" justifyContent="SpaceAround">
+														<HBox>
+															<core:Icon size="1rem" src="sap-icon://employee" class="sapUiTinyMarginEnd"/>
+															<Text text="{title}"/>
+														</HBox>
+														<HBox>
+															<core:Icon size="1rem" src="sap-icon://employee" class="sapUiTinyMarginEnd"/>
+															<Text text="{travellerType}"/>
+														</HBox>
+													</FlexBox>
+												</FlexBox>
+											</content>
+										</Panel>
+									</CustomListItem>
+								</items>
+							</List>
+						</Panel>
+					</content>
+					<content>
+						<HBox width="100%" class="sapUiSmallMarginTopBottom">
+							<Title text="3. Flight/Train" titleStyle="H3"/>
+						</HBox>
+						<Panel class="border-lineRadius">
+							<List id="list" items="{/flights}">
+								<items>
+									<CustomListItem>
+										<FlexBox id="_ss6" justifyContent="SpaceAround" height="150px" direction="Row"
+											class="box-border sapUiMediumMarginBottom" fitContainer="true">
+											<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+												<FlexBox width="100%" justifyContent="SpaceAround">
+													<HBox>
+														<Title text="#{ticketNo}"/>
+													</HBox>
+													<HBox>
+														<Title text="{from}" titleStyle="H1"/>
+													</HBox>
+													<HBox>
+														<core:Icon src="sap-icon://flight" size="2rem"/>
+													</HBox>
+													<HBox>
+														<Title text="{to}" titleStyle="H1"/>
+													</HBox>
+												</FlexBox>
+												<FlexBox width="100%" justifyContent="SpaceAround">
+													<HBox>
+														<Title text="{airline}" titleStyle="H4"/>
+													</HBox>
+													<HBox>
+														<Title text="{departure}"/>
+													</HBox>
+													<HBox>
+														<Title text="{stops}"/>
+													</HBox>
+													<HBox>
+														<Title text="{returnD}"/>
+													</HBox>
+													<HBox>
+														<Title text="{perPerson} Person,"/>
+														<Title text="{cabinClass} Class"/>
+													</HBox>
+													<HBox>
+														<Title text="₹{price}" titleStyle="H4"/>
+													</HBox>
+												</FlexBox>
+											</FlexBox>
+										</FlexBox>
+									</CustomListItem>
+								</items>
+							</List>
+						</Panel>
+						<Panel visible="false" class="border-lineRadius">
+							<List id="list1" items="{/trains}">
+								<items>
+									<CustomListItem>
+										<FlexBox id="_sss6" justifyContent="SpaceAround" height="150px" direction="Row"
+											class="box-border sapUiMediumMarginBottom" fitContainer="true">
+											<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+												<FlexBox width="100%" justifyContent="SpaceAround">
+													<HBox>
+														<Title text="#{ticketNoTrain}"/>
+													</HBox>
+													<HBox>
+														<Title text="{fromTrain}" titleStyle="H1"/>
+													</HBox>
+													<HBox>
+														<core:Icon src="sap-icon://passenger-train" size="2rem"/>
+													</HBox>
+													<HBox>
+														<Title text="{toTrain}" titleStyle="H1"/>
+													</HBox>
+												</FlexBox>
+												<FlexBox width="100%" justifyContent="SpaceAround">
+													<HBox>
+														<Title text="{trainN}" titleStyle="H4"/>
+													</HBox>
+													<HBox>
+														<Title text="{departureDtrain}"/>
+													</HBox>
+													<HBox>
+														<Title text="{quota}"/>
+													</HBox>
+													<HBox>
+														<Title text="{returnDTrain}"/>
+													</HBox>
+													<HBox>
+														<Title text="{perPersonTrain} Person,"/>
+														<Title text="{trainClass} Class"/>
+													</HBox>
+													<HBox>
+														<Title text="₹{priceTrain}" titleStyle="H4"/>
+													</HBox>
+												</FlexBox>
+											</FlexBox>
+										</FlexBox>
+									</CustomListItem>
+								</items>
+							</List>
+						</Panel>
+					</content>
+					<content>
+						<HBox width="100%" class="sapUiSmallMarginTopBottom">
+							<Title text="4. Accomodation" titleStyle="H3"/>
+						</HBox>
+						<Panel class="border-lineRadius">
+							<List id="list1d" items="{/hotels}">
+								<items>
+									<CustomListItem>
+										<FlexBox id="_sssdd6" justifyContent="SpaceAround" height="150px" direction="Row"
+											class="box-border sapUiMediumMarginBottom" fitContainer="true">
+											<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+												<FlexBox width="100%" direction="Column" alignContent="SpaceAround" justifyContent="Center" alignItems="Center">
+													<FlexBox width="86%" direction="Column">
+														<HBox>
+															<Title text="{hotelName}," titleStyle="H2"/>
+															<Title text=" {hotelLocation}" titleStyle="H2"/>
+															<core:Icon src="sap-icon://map" size="1.3rem"/>
+														</HBox>
+														<HBox>
+															<core:Icon id="starIcon" src="sap-icon://favorite" size="0.9rem"/>
+															<core:Icon src="sap-icon://favorite" size="0.9rem"/>
+														</HBox>
+													</FlexBox>
+												</FlexBox>
+												<FlexBox width="100%" justifyContent="SpaceAround">
+													<HBox>
+														<Title text="Check in {chkinDate}"/>
+													</HBox>
+													<HBox>
+														<Title text="Check out {chkoutDate}"/>
+													</HBox>
+													<HBox>
+														<Title text="{perPersonHotel} Person,"/>
+														<Title text="{roomNos} Room"/>
+													</HBox>
+													<HBox>
+														<Title text="₹{hotelPrice}" titleStyle="H4"/>
+													</HBox>
+												</FlexBox>
+											</FlexBox>
+										</FlexBox>
+									</CustomListItem>
+								</items>
+							</List>
+						</Panel>
+					</content>
+					<content>
+						<HBox width="100%" class="sapUiSmallMarginTopBottom">
+							<Title text="5. Car Pool" titleStyle="H3"/>
+						</HBox>
+						<FlexBox width="100%" id="boxAcco" justifyContent="Center" direction="Column" class="border-lineRadius">
+							<FlexBox id="_box6" alignItems="End" fitContainer="true" justifyContent="SpaceAround">
+								<HBox height="50px" alignItems="Center">
+									<Text text="Do you want to avail Pool Car Service?"/>
+								</HBox>
+								<HBox>
+									<Title text="Yes" titleStyle="H2"/>
+								</HBox>
+							</FlexBox>
+						</FlexBox>
+					</content>
+					<content>
+						<HBox justifyContent="SpaceBetween" class="sapUiMediumMarginTopBottom">
+							<HBox>
+								<Button text="back" type="Emphasized" press="backToWizardContent"/>
+							</HBox>
+							<HBox width="23%" justifyContent="SpaceBetween">
+								<Button text="Save as Draft" type="Emphasized"/>
+								<Button text="Send for Approval" type="Emphasized"/>
+							</HBox>
+						</HBox>
+					</content>-->
+				</Panel>
+			</FlexBox>
+		</content>
+	</Panel>
+</mvc:View>

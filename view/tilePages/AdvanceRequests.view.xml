@@ -1,0 +1,110 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	controllerName="com.TitagarhTravel_Expence_Management.controller.tilePages.AdvanceRequests" height="100%">
+	<tnt:ToolHeader height="80px" class="headerColor">
+		<Button text="" icon="sap-icon://nav-back" press="onNavBack"/>
+		<Title text="{i18n>comTitle}" titleStyle="H1"/>
+		<Text text="{i18n>appTitle}"/>
+		<ToolbarSpacer/>
+		<!--<Avatar src="images/pp.jpg" displaySize="XS"/>-->
+		<Text text="{employeeData>/0/EMP_NAME}"/>
+		<Button press="onProfilePopUp" type="Transparent" icon="sap-icon://slim-arrow-down" class="smallIcon"/>
+		<!--<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press=".onAvatarPressed" />-->
+		<!--<Button icon="sap-icon://grid" type="Transparent" />-->
+	</tnt:ToolHeader>
+	<Panel width="100%" height="100%">
+		<content>
+			<FlexBox direction="Column" justifyContent="Center" alignItems="Center">
+				<!--<Text text="hell"/>-->
+				<FlexBox width="95%" id="_nm" height="100%" direction="Column" alignItems="Center" class="cardView sapUiSmallMarginTop">
+					<!--<Text text="hello"/>-->
+					<items>
+						<FlexBox width="90%" id="__box1" justifyContent="SpaceBetween" wrap="Wrap" alignItems="Center" class="sapUiMediumMarginTop">
+							<HBox width="100%" justifyContent="SpaceBetween">
+								<HBox>
+									<Title text="Trip List" titleStyle="H1"/>
+									<Title class="sapUiTinyMarginBegin sapUiTinyMarginTop" text=" / Advance Requests"/>
+								</HBox>
+								<HBox width="auto" justifyContent="SpaceBetween" wrap="Wrap">
+									<SearchField search="onSearch" width="17.5rem" class="sapUiSmallMarginEnd"/>
+									<Button text="Request History" icon="sap-icon://work-history" iconFirst="false" class="sapUiSmallMarginEnd"
+										press="viewRequestAdvanceHistory"/>
+									<!--<Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed" type="Emphasized"/>-->
+									<Button tooltip="Create Advance Requests" icon="sap-icon://request" iconFirst="false" text="Create Request Advance"
+										press="createRequestAdvance" type="Emphasized"/>
+								</HBox>
+							</HBox>
+						</FlexBox>
+						<FlexBox width="90%" id="_box" direction="Column" justifyContent="Center" backgroundDesign="Translucent"
+							class="sapUiMediumMarginTop borderTable">
+							<ScrollContainer height="340px" vertical="true">
+								<l:VerticalLayout width="100%">
+									<l:content>
+										<Table id="tripListTable" items="{/advanceRequests}" growingScrollToLoad="true" growing="true" fixedLayout="false" sticky="ColumnHeaders">
+											<!--<headerToolbar>
+											<OverflowToolbar>
+												<Title text="" level="H2"/>
+												<ToolbarSpacer/>
+												<Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed" type="Emphasized"/>
+												<Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed" type="Emphasized"/>
+												<Button tooltip="Group" icon="sap-icon://group-2" press="handleGroupButtonPressed" type="Emphasized"/>
+												<Button tooltip="export Excel" icon="sap-icon://excel-attachment" press="handleExportExcelPressed" type="Emphasized"/>
+												
+											</OverflowToolbar>
+										</headerToolbar>-->
+											<infoToolbar>
+												<OverflowToolbar id="vsdFilterBar" visible="false">
+													<Text id="vsdFilterLabel"/>
+												</OverflowToolbar>
+											</infoToolbar>
+											<columns>
+												<Column id="prodsct" hAlign="Center">
+													<Button id="tripNo" text="Trip No" icon="sap-icon://sort" iconFirst="false" press="handleSortButtonPressed" class="smallIcon"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<Button id="requestedBy" text="Requested By" icon="sap-icon://sort" iconFirst="false" press="handleSortButtonPressed"
+														class="smallIcon tableHeaderBtn"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<Button id="advanceDate" text="Date" icon="sap-icon://sort" iconFirst="false" press="handleSortButtonPressed" class="smallIcon"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<Button id="advanceAmount" text="Amount" icon="sap-icon://sort" iconFirst="false" press="handleSortButtonPressed" class="smallIcon"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<Button id="advanceReason" text="Reason" icon="sap-icon://sort" iconFirst="false" press="handleSortButtonPressed" class="smallIcon"/>
+												</Column>
+												<!--<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+												<Button id="to" text="To" icon="sap-icon://sort" iconFirst="false" press="handleSortButtonPressed" class="smallIcon"/>
+											</Column>-->
+												<Column hAlign="Center">
+													<Button text="Status" icon="sap-icon://sort" iconFirst="false" press="handleSortButtonPressed" class="smallIcon"/>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem vAlign="Middle" press="onListItemPress">
+													<cells>
+														<ObjectNumber number="{tripNo}" textAlign="Center"/>
+														<ObjectIdentifier title="{requestedBy}" text=""/>
+														<Text text="{advanceDate}"/>
+														<Text text="{advanceAmount}"/>
+														<Text text="{advanceReason}"/>
+														<ObjectIdentifier title="{status/0}" text=""/>
+														<!--<ObjectNumber number="{}"/>
+												<ObjectNumber number="{}"/>-->
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+									</l:content>
+								</l:VerticalLayout>
+							</ScrollContainer>
+						</FlexBox>
+						<FlexBox width="85%" justifyContent="End" class="sapUiSmallMarginTop">
+							<Button icon="sap-icon://add" text="CREATE TRIP" class="tripBtn" press="onPressToCreateTrip"/>
+						</FlexBox>
+					</items>
+				</FlexBox>
+			</FlexBox>
+		</content>
+	</Panel>
+</mvc:View>

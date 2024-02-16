@@ -1,0 +1,443 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	controllerName="com.TitagarhTravel_Expence_Management.controller.tilePages.CreateTrip">
+	<tnt:ToolHeader height="80px" id="createTripPage" class="headerColor">
+		<Button id="onNavBack" text="" icon="sap-icon://nav-back" press="onNavBack"/>
+		<Title text="{i18n>comTitle}" titleStyle="H1"/>
+		<Text text="{i18n>appTitle}"/>
+		<ToolbarSpacer/>
+		<!--<Avatar src="images/pp.jpg" displaySize="XS"/>-->
+		<Text text="{employeeData>/0/EMP_NAME}"/>
+		<Button press="onProfilePopUp" type="Transparent" icon="sap-icon://slim-arrow-down" class="smallIcon"/>
+		<!--<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press=".onAvatarPressed" />-->
+		<!--<Button icon="sap-icon://grid" type="Transparent" />-->
+	</tnt:ToolHeader>
+	<NavContainer id="wizardNavContainer" width="100%">
+		<pages>
+			<Page id="wizardContentPage" showHeader="false">
+				<content>
+					<Wizard id="CreateTripWizard" complete="wizardCompletedHandler">
+						<WizardStep id="tripInformation" icon="sap-icon://trip-report" title="Trip Information" validated="true" complete="onComplete">
+							<Panel>
+								<FlexBox class="panelClass" justifyContent="End">
+									<FlexBox justifyContent="End" class="flexClass">
+										<HBox>
+											<Button icon="sap-icon://request" iconFirst="false" text="Advance Request" class="sapUiTinyMarginEnd" tooltip="Advance Request"
+												type="Accept"/>
+										</HBox>
+										<HBox>
+											<Button icon="sap-icon://notes" iconFirst="false" text="Saved Draft" tooltip="Saved Draft" type="Accept"/>
+										</HBox>
+									</FlexBox>
+								</FlexBox>
+								<content>
+									<mvc:XMLView viewName="com.TitagarhTravel_Expence_Management.view.nestedViews.TripInformation"/>
+									<FlexBox width="98%" id="stepBox1" justifyContent="End">
+										<!--<HBox>
+											<Button id="step1Back" text="Back" type="Emphasized" press="back"/>
+										</HBox>-->
+										<!--<HBox>
+											<Button id="stepBtn1" text="Save &amp; Continue" type="Emphasized" press="goFrom1To2"/>
+										</HBox>-->
+									</FlexBox>
+								</content>
+							</Panel>
+						</WizardStep>
+						<WizardStep id="travellerDetails" validated="true" title="Traveller Details" activate="additionalInfoValidation" complete="onComplete">
+							<Panel>
+								<content>
+									<mvc:XMLView viewName="com.TitagarhTravel_Expence_Management.view.nestedViews.TravellerDetails"/>
+									<FlexBox width="98%" id="stepBox2" justifyContent="SpaceBetween">
+										<!--<HBox>
+											<Button id="step2Back" text="Back" type="Emphasized" press="back"/>
+										</HBox>-->
+										<!--<HBox>
+											<Button id="stepBtn2" text="Save &amp; Continue" type="Emphasized" press="goFrom2To3"/>
+										</HBox>-->
+									</FlexBox>
+								</content>
+							</Panel>
+						</WizardStep>
+						<WizardStep id="flightsTrainStep" validated="true" activate="optionalStepActivation" title="Flight/Train" complete="onComplete"
+							visible="true">
+							<Panel>
+								<content>
+									<mvc:XMLView viewName="com.TitagarhTravel_Expence_Management.view.nestedViews.Flight_Train"/>
+									<FlexBox width="98%" id="stepBox3" justifyContent="SpaceBetween">
+										<!--<HBox>
+											<Button id="step3Back" text="Back" type="Emphasized" press="back"/>
+										</HBox>-->
+										<!--<HBox>
+											<Button id="stepBtn3" text="Save &amp; Continue" type="Emphasized" press="goFrom3To4"/>
+										</HBox>-->
+									</FlexBox>
+								</content>
+							</Panel>
+						</WizardStep>
+						<WizardStep id="accomadation" activate="pricingActivate" complete="pricingComplete" validated="true" title="Accomadation">
+							<Panel>
+								<content>
+									<mvc:XMLView viewName="com.TitagarhTravel_Expence_Management.view.nestedViews.Accomodation"/>
+									<FlexBox width="98%" id="stepBox4" justifyContent="SpaceBetween">
+										<!--<HBox>
+											<Button id="step4Back" text="Back" type="Emphasized" press="back"/>
+										</HBox>-->
+										<!--<HBox>
+											<Button id="stepBtn4" text="Save &amp; Continue" type="Emphasized" press="goFrom4To5"/>
+										</HBox>-->
+									</FlexBox>
+								</content>
+							</Panel>
+						</WizardStep>
+						<WizardStep id="carpool" title="Car Pool" validated="true">
+							<Panel>
+								<content>
+									<mvc:XMLView viewName="com.TitagarhTravel_Expence_Management.view.nestedViews.Carpool"/>
+									<FlexBox width="98%" id="stepBox5" justifyContent="SpaceBetween">
+										<!--<HBox>
+											<Button id="step5Back" text="Back" type="Emphasized" press="back"/>
+										</HBox>-->
+										<!--<HBox>
+											<Button id="stepBtn5" text="Save &amp; Continue" type="Emphasized" press="goFrom5To6"/>
+										</HBox>-->
+									</FlexBox>
+								</content>
+							</Panel>
+						</WizardStep>
+						<WizardStep id="preview" title="Preview" validated="true"/>
+					</Wizard>
+				</content>
+				<!--<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="Cancel" press="handleWizardCancel"/>
+					</OverflowToolbar>
+				</footer>-->
+			</Page>
+			<Page id="wizardReviewPage" showHeader="false">
+				<content>
+					<Panel headerText="" width="95%">
+						<content>
+							<FlexBox width="100%" id="__b1" height="100%" justifyContent="Center" direction="Column" alignItems="Stretch">
+								<Panel>
+									<content>
+										<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center" class="sapUiSmallMarginBottom">
+											<HBox>
+												<Title text="1. Trip Information" titleStyle="H3"/>
+											</HBox>
+											<HBox justifyContent="Start">
+												<Button icon="sap-icon://write-new-document" type="Emphasized" press="editStepOne"/>
+											</HBox>
+										</FlexBox>
+										<FlexBox width="100%" id="_box1" height="100%" justifyContent="Center" direction="Column" alignItems="Center" class="border-lineRadius">
+											<!--<Text text="hello"/>-->
+											<FlexBox width="90%" height="250px" id="tripViewReviewPage" wrap="Wrap" justifyContent="Start" alignItems="Center" visible="true">
+												<HBox width="25%" direction="Column">
+													<Label text="Travel Type"/>
+													<Title text="{tripInfo>/travelType}" titleStyle="H5"/>
+												</HBox>
+												<HBox width="25%" direction="Column">
+													<Label text="Trip"/>
+													<Title text="{tripInfo>/tripWay}" titleStyle="H5"/>
+												</HBox>
+												<HBox width="25%" direction="Column">
+													<Label text="From Location"/>
+													<Title text="{tripInfo>/fromLocation}" titleStyle="H5"/>
+												</HBox>
+												<HBox width="25%" direction="Column">
+													<Label text="To Location"/>
+													<Title text="{tripInfo>/toLocation}" titleStyle="H5"/>
+												</HBox>
+												<HBox width="25%" direction="Column">
+													<Label text="Strt Date"/>
+													<Title text="{tripInfo>/startDate}" level="H5"/>
+												</HBox>
+												<HBox width="25%" direction="Column">
+													<Label text="End Dte"/>
+													<Title text="{tripInfo>/endDate}" level="H5"/>
+												</HBox>
+												<HBox width="25%" direction="Column">
+													<Label text="Purpose"/>
+													<Title text="{tripInfo>/purpose}" titleStyle="H5"/>
+												</HBox>
+												<HBox width="25%" direction="Column">
+													<Label text="Trip Cost Center"/>
+													<Title text="{tripInfo>/costCenter}" titleStyle="H5"/>
+												</HBox>
+												<HBox width="auto" direction="Column">
+													<Label text="Travel Details"/>
+													<Title text="{tripInfo>/travelDetails}" wrapping="true" titleStyle="H5"/>
+												</HBox>
+											</FlexBox>
+										</FlexBox>
+									</content>
+									<content>
+										<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center" class="sapUiSmallMarginTopBottom">
+											<HBox>
+												<Title text="2. Traveller Details" titleStyle="H3"/>
+											</HBox>
+											<HBox justifyContent="Start">
+												<Button icon="sap-icon://write-new-document" type="Emphasized" press="editStepTwo"/>
+											</HBox>
+										</FlexBox>
+										<Panel class="border-lineRadius">
+											<List id="expandableList" items="{travellerDetails>/travellers}">
+												<items>
+													<CustomListItem>
+														<Panel headerText="" expanded="{expanded}" expand="onExpandCollapse" expandable="false">
+															<headerToolbar>
+																<Toolbar>
+																	<content>
+																		<FlexBox width="100%" justifyContent="SpaceAround">
+																			<HBox width="60%">
+																				<Label text="{travellerDetails>EMP_NAME}" class="sapMTitle sapUiTinyMargin"/>
+																			</HBox>
+																			<HBox width="40%">
+																				<core:Icon size="1rem" src="sap-icon://employee" class="sapUiTinyMarginTop"/>
+																				<Text text="{travellerDetails>TRVLR_TYPE}" class="sapMTitle sapUiTinyMargin"/>
+																			</HBox>
+																		</FlexBox>
+																	</content>
+																</Toolbar>
+															</headerToolbar>
+															<content>
+																<FlexBox width="100%" height="auto" id="__bx3" direction="Column" justifyContent="Center" class="roundBorder">
+																	<FlexBox width="100%" height="40px" justifyContent="SpaceAround" alignItems="Center">
+																		<HBox width="15%" justifyContent="Start">
+																			<core:Icon size="1rem" src="sap-icon://employee" class="sapUiTinyMarginEnd"/>
+																			<Text text="{travellerDetails>EMP_NAME}"/>
+																		</HBox>
+																		<HBox width="15%" justifyContent="Start">
+																			<core:Icon size="1rem" src="sap-icon://role" class="sapUiTinyMarginEnd"/>
+																			<Text text="{travellerDetails>TRVLR_TYPE}"/>
+																		</HBox>
+																		<HBox width="15%" justifyContent="Start">
+																			<core:Icon size="1rem" src="sap-icon://call" class="sapUiTinyMarginEnd"/>
+																			<Text text="{travellerDetails>PHONE}"/>
+																		</HBox>
+																	</FlexBox>
+																	<FlexBox width="100%" height="40px" justifyContent="SpaceAround" alignItems="Center">
+																		<HBox width="15%" justifyContent="Start">
+																			<core:Icon size="1rem" src="sap-icon://validate" class="sapUiTinyMarginEnd"/>
+																			<Text text="{travellerDetails>EMP_ID}"/>
+																		</HBox>
+																		<HBox width="15%" justifyContent="Start">
+																			<core:Icon size="1rem" src="sap-icon://male" class="sapUiTinyMarginEnd"/>
+																			<Text text="{travellerDetails>GENDER}"/>
+																		</HBox>
+																		<HBox width="15%" justifyContent="Start">
+																			<core:Icon size="1rem" src="sap-icon://call" class="sapUiTinyMarginEnd"/>
+																			<Text text="{travellerDetails>EMAIL}"/>
+																		</HBox>
+																	</FlexBox>
+																</FlexBox>
+															</content>
+														</Panel>
+													</CustomListItem>
+												</items>
+											</List>
+										</Panel>
+									</content>
+									<content>
+										<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center" class="sapUiSmallMarginTopBottom">
+											<HBox>
+												<Title text="3. Flight/Train" titleStyle="H3"/>
+											</HBox>
+											<HBox justifyContent="Start">
+												<Button icon="sap-icon://write-new-document" type="Emphasized" press="editStepThree"/>
+											</HBox>
+										</FlexBox>
+										<Panel id="flightReviewPage" class="border-lineRadius">
+											<List id="list" items="{flightDataMaster>/flights}">
+												<items>
+													<CustomListItem>
+														<FlexBox id="_ss6" justifyContent="SpaceAround" height="150px" direction="Row" class="box-border sapUiMediumMarginBottom"
+															fitContainer="true">
+															<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+																<FlexBox width="100%" justifyContent="SpaceAround">
+																	<HBox class="tripwayContainer">
+																		<Title class="tripwayText" text="{flightDataMaster>DEPART_RETURN}" titleStyle="H2"/>
+																	</HBox>
+																	<HBox>
+																		<Label text="Tckt No."/>
+																		<Title text="{flightDataMaster>TICKET_NO}" titleStyle="H4"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{flightDataMaster>DEPART_FROM}" titleStyle="H1"/>
+																	</HBox>
+																	<HBox>
+																		<core:Icon src="sap-icon://flight" size="1.5rem"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{flightDataMaster>ARRIVE_AT}" titleStyle="H1"/>
+																	</HBox>
+																</FlexBox>
+																<FlexBox width="100%" justifyContent="SpaceAround">
+																	<HBox>
+																		<Title text="{flightDataMaster>AIRLINE_NAME}" titleStyle="H4"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{flightDataMaster>DEPT_DATE}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{flightDataMaster>STOPS}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{flightDataMaster>RETURN_DATE}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{flightDataMaster>PERSONS} Person,"/>
+																		<Title text="{flightDataMaster>CABIN_CLASS} Class"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="₹{flightDataMaster>PRICE}" titleStyle="H4"/>
+																	</HBox>
+																</FlexBox>
+															</FlexBox>
+														</FlexBox>
+													</CustomListItem>
+												</items>
+											</List>
+										</Panel>
+										<Panel id="trainReviewPage" visible="false" class="border-lineRadius">
+											<List id="list1" items="{trainDataMaster>/trains}">
+												<items>
+													<CustomListItem>
+														<FlexBox id="_sss6" justifyContent="SpaceAround" height="150px" direction="Row" class="box-border sapUiMediumMarginBottom"
+															fitContainer="true">
+															<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+																<FlexBox width="100%" justifyContent="SpaceAround">
+																	<HBox class="tripwayContainer">
+																		<Title class="tripwayText" text="{trainDataMaster>DEPART_RETURN}" titleStyle="H2"/>
+																	</HBox>
+																	<HBox>
+																		<Label text="Tckt No."/>
+																		<Title text="{trainDataMaster>TICKET_NO}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{trainDataMaster>BOARD}" titleStyle="H1"/>
+																	</HBox>
+																	<HBox direction="Column" justifyContent="Center" alignItems="Center">
+																		<core:Icon src="sap-icon://passenger-train" size="1.3rem"/>
+																		<Title text="{trainDataMaster>PNR_NO}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{trainDataMaster>DESTINATION}" titleStyle="H1"/>
+																	</HBox>
+																</FlexBox>
+																<FlexBox width="100%" justifyContent="SpaceAround">
+																	<HBox>
+																		<Title text="{trainDataMaster>TRAIN_NAME}" titleStyle="H4"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{trainDataMaster>DEPT_DATE}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{trainDataMaster>QUOTA}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{trainDataMaster>RETURN_DATE}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{trainDataMaster>PERSONS} Person,"/>
+																		<Title text="{trainDataMaster>CLASS} Class"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="₹{trainDataMaster>PRICE}" titleStyle="H4"/>
+																	</HBox>
+																</FlexBox>
+															</FlexBox>
+														</FlexBox>
+													</CustomListItem>
+												</items>
+											</List>
+										</Panel>
+									</content>
+									<content>
+										<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center" class="sapUiSmallMarginTopBottom">
+											<HBox>
+												<Title text="4. Accomodation" titleStyle="H3"/>
+											</HBox>
+											<HBox justifyContent="Start">
+												<Button icon="sap-icon://write-new-document" type="Emphasized" press="editStepFour"/>
+											</HBox>
+										</FlexBox>
+										<Panel class="border-lineRadius">
+											<List id="list1d" items="{hotelData>/hotels}">
+												<items>
+													<CustomListItem>
+														<FlexBox id="_sssdd6" justifyContent="SpaceAround" height="150px" backgroundDesign="Solid" direction="Row"
+															class="box-border sapUiMediumMarginBottom" fitContainer="true">
+															<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+																<FlexBox width="100%" direction="Column" alignContent="SpaceAround" justifyContent="Center" alignItems="Center">
+																	<FlexBox width="86%" direction="Column">
+																		<HBox>
+																			<Title text="{hotelData>NAME}," titleStyle="H2"/>
+																			<Title text=" {hotelData>LOCATION}" titleStyle="H2"/>
+																			<core:Icon src="sap-icon://map" size="1.3rem"/>
+																		</HBox>
+																		<HBox>
+																			<core:Icon id="starIcon" src="sap-icon://favorite" size="0.9rem"/>
+																			<core:Icon src="sap-icon://favorite" size="0.9rem"/>
+																		</HBox>
+																	</FlexBox>
+																</FlexBox>
+																<FlexBox width="100%" justifyContent="SpaceAround">
+																	<HBox>
+																		<Title text="Check in {hotelData>CHECK_IN}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="Check out {hotelData>CHECK_OUT}"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="{hotelData>PERSONS} Person,"/>
+																		<Title text="{hotelData>NO_OF_ROOMS} Room"/>
+																	</HBox>
+																	<HBox>
+																		<Title text="₹{hotelData>PRICE}" titleStyle="H4"/>
+																	</HBox>
+																</FlexBox>
+															</FlexBox>
+														</FlexBox>
+													</CustomListItem>
+												</items>
+											</List>
+										</Panel>
+									</content>
+									<content>
+										<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center" class="sapUiSmallMarginTopBottom">
+											<HBox>
+												<Title text="5. Car Pool" titleStyle="H3"/>
+											</HBox>
+											<HBox justifyContent="Start">
+												<Button icon="sap-icon://write-new-document" type="Emphasized" press="editStepFive"/>
+											</HBox>
+										</FlexBox>
+										<FlexBox width="100%" id="boxAcco" justifyContent="Center" direction="Column" class="border-lineRadius">
+											<FlexBox id="_box6" alignItems="End" fitContainer="true" justifyContent="SpaceAround">
+												<HBox height="50px" alignItems="Center">
+													<Text text="Do you want to avail Pool Car Service?"/>
+												</HBox>
+												<HBox>
+													<Title text="{carPoolData>/carPoolValue}" titleStyle="H2"/>
+												</HBox>
+											</FlexBox>
+										</FlexBox>
+									</content>
+									<content>
+										<HBox justifyContent="End" class="sapUiMediumMarginTopBottom">
+											<HBox width="23%" justifyContent="SpaceBetween">
+												<Button text="Save as Draft" type="Emphasized"/>
+												<Button text="Send for Approval" type="Emphasized" press="sendForApproval"/>
+											</HBox>
+										</HBox>
+									</content>
+								</Panel>
+							</FlexBox>
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>

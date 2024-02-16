@@ -1,0 +1,81 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	controllerName="com.TitagarhTravel_Expence_Management.controller.tilePages.CreateTrip">
+	<Panel headerText="" class="sapUiResponsiveMargin border-lineRadius" width="95%">
+		<content>
+			<HBox width="100%" justifyContent="End">
+				<Button icon="sap-icon://add" text="Add Traveller" press="addTraveller" class="sapUiSmallMarginEnd btnRound smallIconForCreateTrip"
+					iconFirst="false"/>
+			</HBox>
+			<Panel>
+				<List id="travellerDetailsList" mode="Delete" items="{travellerDetails>/travellers}" delete="onDeleteTask">
+					<items>
+						<CustomListItem>
+							<Panel headerText="" expanded="{expanded}" expand="onExpandCollapse" expandable="true">
+								<headerToolbar>
+									<Toolbar>
+										<content>
+											<FlexBox width="100%" justifyContent="SpaceAround">
+												<HBox width="60%">
+													<Label text="{travellerDetails>EMP_NAME}" class="sapMTitle sapUiTinyMargin"/>
+												</HBox>
+												<HBox width="40%">
+													<core:Icon size="1rem" src="sap-icon://employee" class="sapUiTinyMarginTop"/>
+													<Text text="{travellerDetails>TRVLR_TYPE}" class="sapMTitle sapUiTinyMargin"/>
+												</HBox>
+											</FlexBox>
+										</content>
+									</Toolbar>
+								</headerToolbar>
+								<content>
+									<FlexBox width="100%" height="auto" id="__bx3" direction="Column" justifyContent="Center" class="roundBorder">
+										<FlexBox width="100%" height="40px" justifyContent="SpaceAround" alignItems="Center">
+											<HBox width="15%" justifyContent="Start">
+												<core:Icon size="1rem" src="sap-icon://employee" class="sapUiTinyMarginEnd"/>
+												<Text text="{travellerDetails>EMP_NAME}"/>
+											</HBox>
+											<HBox width="15%" justifyContent="Start">
+												<core:Icon size="1rem" src="sap-icon://role" class="sapUiTinyMarginEnd"/>
+												<Text text="{travellerDetails>TRVLR_TYPE}"/>
+											</HBox>
+											<HBox width="15%" justifyContent="Start">
+												<core:Icon size="1rem" src="sap-icon://call" class="sapUiTinyMarginEnd"/>
+												<Text text="{travellerDetails>PHONE}"/>
+											</HBox>
+										</FlexBox>
+										<FlexBox width="100%" height="40px" justifyContent="SpaceAround" alignItems="Center">
+											<HBox width="15%" justifyContent="Start">
+												<core:Icon size="1rem" src="sap-icon://validate" class="sapUiTinyMarginEnd"/>
+												<Text text="{travellerDetails>EMP_ID}"/>
+											</HBox>
+											<HBox width="15%" justifyContent="Start">
+												<core:Icon size="1rem" src="sap-icon://male" class="sapUiTinyMarginEnd"/>
+												<Text text="{travellerDetails>GENDER}"/>
+											</HBox>
+											<HBox width="15%" justifyContent="Start">
+												<core:Icon size="1rem" src="sap-icon://call" class="sapUiTinyMarginEnd"/>
+												<Text text="{travellerDetails>EMAIL}"/>
+											</HBox>
+										</FlexBox>
+									</FlexBox>
+								</content>
+							</Panel>
+						</CustomListItem>
+					</items>
+				</List>
+			</Panel>
+			<!--<FlexBox id="viewFlights" justifyContent="Start" width="100%">
+				<FlexBox width="100%" id="_ss6" justifyContent="Center" height="500px" backgroundDesign="Solid" direction="Column"
+					class="box-border sapUiMediumMarginBottom" fitContainer="true">
+					<FlexBox width="100%" justifyContent="SpaceAround" direction="Column">
+						<VBox justifyContent="Center" alignItems="Center">
+							<Title text="Not Found" titleStyle="H1"/>
+						</VBox>
+						<VBox alignItems="Center">
+							<core:Icon src="sap-icon://add-document" size="9rem"/>
+						</VBox>
+					</FlexBox>
+				</FlexBox>
+			</FlexBox>-->
+		</content>
+	</Panel>
+</mvc:View>

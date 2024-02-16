@@ -1,0 +1,66 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt" controllerName="com.TitagarhTravel_Expence_Management.controller.Home">
+	<tnt:ToolHeader height="80px" class="headerColor">
+		<Text text=""/>
+		<Title text="{i18n>comTitle}" titleStyle="H1"/>
+		<Text text="{i18n>appTitle}"/>
+		<ToolbarSpacer/>
+		<!--<Avatar src="images/pp.jpg" displaySize="XS"/>-->
+		<Text text="{employeeData>/0/EMP_NAME}"/>
+		<Button press="onProfilePopUp" type="Transparent" icon="sap-icon://slim-arrow-down" class="smallIcon"/>
+		<!--<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press=".onAvatarPressed" />-->
+		<!--<Button icon="sap-icon://grid" type="Transparent" />-->
+	</tnt:ToolHeader>
+	<Panel width="100%" height="100%" class="backgroundImage homeBox">
+		<FlexBox width="100%" alignItems="Center" justifyContent="SpaceAround" direction="Column" alignContent="SpaceBetween">
+			<!--<items>-->
+				<FlexBox width="85%" id="__box1" justifyContent="SpaceAround" wrap="Wrap">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile" header="Pending trip for Approval" subheader="" press="onPressNavigate" headerImage="sap-icon://fob-watch">
+						<!--<TileContent>
+							<ImageContent src="sap-icon://fob-watch" class="customImage"/>
+						</TileContent>-->
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile" header="Already Approved trip" subheader="" press="onPressNavigate" headerImage="sap-icon://thumb-up">
+						<!--<TileContent>
+							<ImageContent src="sap-icon://thumb-up"/>
+						</TileContent>-->
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile" header="Pending trip from finance" subheader="" press="onPressNavigate" headerImage="sap-icon://travel-expense">
+						<!--<TileContent>
+							<ImageContent src="sap-icon://travel-expense"/>
+						</TileContent>-->
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile" header="Rejected Trip" subheader="" press="onPressNavigate" headerImage="sap-icon://sys-cancel-2">
+						<!--<TileContent>
+							<ImageContent src="sap-icon://sys-cancel-2"/>
+						</TileContent>-->
+					</GenericTile>
+				</FlexBox>
+				<FlexBox width="85%" id="__box2" wrap="Wrap" justifyContent="SpaceAround">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile" header="Advance Requests" subheader="" press="onPressNavigate" headerImage="sap-icon://approvals">
+						<!--<TileContent>
+							<ImageContent src="sap-icon://approvals"/>
+						</TileContent>-->
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile" header="Already Completed Trip" subheader="" press="onPressNavigate" headerImage="sap-icon://accept">
+						<!--<TileContent>
+							<ImageContent src="sap-icon://accept"/>
+						</TileContent>-->
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile" header="Escalation from finance" subheader="" press="onPressNavigate" headerImage="sap-icon://lead">
+						<!--<TileContent>
+							<ImageContent src="sap-icon://lead"/>
+						</TileContent>-->
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile" header="Expense Claim" subheader="" headerImage="sap-icon://expense-report">
+						<!--<TileContent>
+							<ImageContent src="sap-icon://expense-report"/>
+						</TileContent>-->
+					</GenericTile>
+				</FlexBox>
+				<FlexBox width="85%" justifyContent="End">
+					<Button icon="sap-icon://add" text="CREATE TRIP" class="tripBtn" press="onPressToCreateTrip"/>
+				</FlexBox>
+			<!--</items>-->
+		</FlexBox>
+	</Panel>
+</mvc:View>

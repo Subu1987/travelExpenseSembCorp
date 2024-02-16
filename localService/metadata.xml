@@ -1,0 +1,77 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZTEST1_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="SALESHEADER" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Sales Document"/>
+                <Property Name="Erdat" Type="Edm.DateTime" Precision="7" sap:label="Created on"/>
+                <Property Name="Erzet" Type="Edm.Time" Precision="0" sap:label="Time"/>
+                <Property Name="Ernam" Type="Edm.String" MaxLength="12" sap:label="Created by"/>
+                <Property Name="Angdt" Type="Edm.DateTime" Precision="7" sap:label="Valid From"/>
+                <Property Name="Bnddt" Type="Edm.DateTime" Precision="7" sap:label="Valid To"/>
+                <Property Name="Audat" Type="Edm.DateTime" Precision="7" sap:label="Document Date"/>
+            </EntityType>
+            <EntityType Name="SALESITEM" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                    <PropertyRef Name="Posnr"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Sales Document"/>
+                <Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Item"/>
+                <Property Name="Matnr" Type="Edm.String" MaxLength="40" sap:label="Material"/>
+                <Property Name="Matwa" Type="Edm.String" MaxLength="40" sap:label="MaterialEntered"/>
+                <Property Name="Pmatn" Type="Edm.String" MaxLength="40" sap:label="Pr. Ref. Matl"/>
+                <Property Name="Charg" Type="Edm.String" MaxLength="10" sap:label="Batch"/>
+                <Property Name="Matkl" Type="Edm.String" MaxLength="9" sap:label="Material Group"/>
+                <Property Name="Arktx" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+            </EntityType>
+            <EntityType Name="COUNTRY_DROPDOWN" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Country Code"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="35" sap:label="Name"/>
+            </EntityType>
+            <EntityType Name="employee_master" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Empid"/>
+                    <PropertyRef Name="CompanyCode"/>
+                </Key>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Personnel no."/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code"/>
+                <Property Name="CostCenter" Type="Edm.String" MaxLength="10" sap:label="Cost Center"/>
+                <Property Name="Begda" Type="Edm.DateTime" Precision="7" sap:label="Start date"/>
+                <Property Name="Endda" Type="Edm.DateTime" Precision="7" sap:label="End Date"/>
+                <Property Name="EmpName" Type="Edm.String" MaxLength="35" sap:label="Name"/>
+                <Property Name="Gender" Type="Edm.String" MaxLength="15" sap:label="Gender"/>
+                <Property Name="EmpMail" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="Branch" Type="Edm.String" MaxLength="20" sap:label="Branch"/>
+                <Property Name="Grade" Type="Edm.String" MaxLength="20" sap:label="Grade"/>
+                <Property Name="Designation" Type="Edm.String" MaxLength="54" sap:label="Designation"/>
+                <Property Name="BirthDate" Type="Edm.DateTime" Precision="7" sap:label="Birth date"/>
+                <Property Name="Nationality" Type="Edm.String" MaxLength="15" sap:label="Nationality"/>
+                <Property Name="Address1" Type="Edm.String" MaxLength="60" sap:label="Street/House"/>
+                <Property Name="Address2" Type="Edm.String" MaxLength="40" sap:label="2nd add.line"/>
+                <Property Name="EmpMobile1" Type="Edm.String" MaxLength="30" sap:label="Telephone"/>
+                <Property Name="EmpMobile2" Type="Edm.String" MaxLength="10" sap:label="Mobile Number"/>
+                <Property Name="ActiveInd" Type="Edm.String" MaxLength="1" sap:label="Active Indicator"/>
+            </EntityType>
+            <EntityContainer Name="ZTEST1_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SALESHEADERSet" EntityType="ZTEST1_SRV.SALESHEADER" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SALESITEMSet" EntityType="ZTEST1_SRV.SALESITEM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="COUNTRY_DROPDOWNSet" EntityType="ZTEST1_SRV.COUNTRY_DROPDOWN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="employee_masterSet" EntityType="ZTEST1_SRV.employee_master" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZTEST1_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZTEST1_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

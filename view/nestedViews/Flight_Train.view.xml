@@ -1,0 +1,157 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="com.TitagarhTravel_Expence_Management.controller.tilePages.CreateTrip">
+	<Panel headerText="" class="sapUiResponsiveMargin border-lineRadius" width="95%">
+		<content>
+			<FlexBox width="100%" id="nm" justifyContent="Center" direction="Column">
+				<FlexBox id="_box6" justifyContent="Start">
+					<HBox>
+						<RadioButtonGroup id="radioBtnFlightTrain" columns="5" class="sapUiMediumMarginBottom" select="changeRadioBtnFlightTrain">
+							<RadioButton id="flight" text="Flight Booking" visible="{= ${employeeData>/0/AVAIL_FLIGHT} === 'Y' ? true : false}"/>
+							<RadioButton id="train" text="Train Booking" visible="{= ${employeeData>/0/AVAIL_TRAIN} === 'Y' ? true : false}"/>
+						</RadioButtonGroup>
+					</HBox>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox direction="Column" id="flightsView" visible="true">
+			    <!--<Text text="text"/>-->
+				<FlexBox width="100%" id="_nm" justifyContent="Center" direction="Column">
+					<!--<Text text="hello"/>-->
+					<items>
+						<HBox width="100%" justifyContent="End">
+							<Button icon="sap-icon://add" iconFirst="false" text="Add Flights" press="addFlights" class="sapUiSmallMarginEnd btnRound smallIconForCreateTrip"/>
+						</HBox>
+					</items>
+				</FlexBox>
+				<Panel>
+					<List id="list" items="{flightDataMaster>/flights}">
+						<items>
+							<CustomListItem>
+								<FlexBox id="_ss6" justifyContent="SpaceAround" height="150px" direction="Row" class="box-border sapUiMediumMarginBottom" fitContainer="true">
+									<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+										<FlexBox width="100%" justifyContent="SpaceAround">
+											<HBox class="tripwayContainer">
+												<Title class="tripwayText" text="{flightDataMaster>DEPART_RETURN}" titleStyle="H2"/>
+											</HBox>
+											<HBox>
+												<Label text="Tckt No."/>
+												<Title text="{flightDataMaster>TICKET_NO}" titleStyle="H4"/>
+											</HBox>
+											<HBox>
+												<Title text="{flightDataMaster>DEPART_FROM}" titleStyle="H1"/>
+											</HBox>
+											<HBox>
+												<core:Icon src="sap-icon://flight" size="1.5rem"/>
+											</HBox>
+											<HBox>
+												<Title text="{flightDataMaster>ARRIVE_AT}" titleStyle="H1"/>
+											</HBox>
+										</FlexBox>
+										<FlexBox width="100%" justifyContent="SpaceAround">
+											<HBox>
+												<Title text="{flightDataMaster>AIRLINE_NAME}" titleStyle="H4"/>
+											</HBox>
+											<HBox>
+												<Title text="{flightDataMaster>DEPT_DATE}"/>
+											</HBox>
+											<HBox>
+												<Title text="{flightDataMaster>STOPS}"/>
+											</HBox>
+											<HBox>
+												<Title text="{flightDataMaster>RETURN_DATE}"/>
+											</HBox>
+											<HBox>
+												<Title text="{flightDataMaster>PERSONS} Person,"/>
+												<Title text="{flightDataMaster>CABIN_CLASS} Class"/>
+											</HBox>
+											<HBox>
+												<Title text="₹{flightDataMaster>PRICE}" titleStyle="H4"/>
+											</HBox>
+										</FlexBox>
+									</FlexBox>
+									<FlexBox direction="Column" justifyContent="Center">
+										<HBox>
+											<Button icon="sap-icon://edit" iconDensityAware="false" type="Transparent" press="onEditFlight"/>
+										</HBox>
+										<HBox>
+											<Button icon="sap-icon://delete" iconDensityAware="false" type="Transparent" press="onDeleteFlight"/>
+										</HBox>
+									</FlexBox>
+								</FlexBox>
+							</CustomListItem>
+						</items>
+					</List>
+				</Panel>
+			</FlexBox>
+			<FlexBox direction="Column" id="trainsView" visible="false">
+			    <!--<Text text="text"/>-->
+				<FlexBox width="100%" id="_nms" justifyContent="Center" direction="Column">
+					<!--<Text text="hello"/>-->
+					<items>
+						<HBox width="100%" justifyContent="End">
+							<Button icon="sap-icon://add" iconFirst="false" text="Add Trains" press="addTrains" class="sapUiSmallMarginEnd btnRound smallIconForCreateTrip"/>
+						</HBox>
+					</items>
+				</FlexBox>
+				<Panel>
+					<List id="list1" items="{trainDataMaster>/trains}">
+						<items>
+							<CustomListItem>
+								<FlexBox id="_sss6" justifyContent="SpaceAround" height="150px" direction="Row" class="box-border sapUiMediumMarginBottom" fitContainer="true">
+									<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+										<FlexBox width="100%" justifyContent="SpaceAround">
+											<HBox class="tripwayContainer">
+												<Title class="tripwayText" text="{trainDataMaster>DEPART_RETURN}" titleStyle="H2"/>
+											</HBox>
+											<HBox>
+												<Label text="Tckt No."/>
+												<Title text="{trainDataMaster>TICKET_NO}" titleStyle="H3"/>
+											</HBox>
+											<HBox>
+												<Title text="{trainDataMaster>BOARD}" titleStyle="H1"/>
+											</HBox>
+											<HBox direction="Column" justifyContent="Center" alignItems="Center">
+												<core:Icon src="sap-icon://passenger-train" size="1.3rem"/>
+												<Title text="{trainDataMaster>PNR_NO}"/>
+											</HBox>
+											<HBox>
+												<Title text="{trainDataMaster>DESTINATION}" titleStyle="H1"/>
+											</HBox>
+										</FlexBox>
+										<FlexBox width="100%" justifyContent="SpaceAround">
+											<HBox>
+												<Title text="{trainDataMaster>TRAIN_NAME}" titleStyle="H4"/>
+											</HBox>
+											<HBox>
+												<Title text="{trainDataMaster>DEPT_DATE}"/>
+											</HBox>
+											<HBox>
+												<Title text="{trainDataMaster>QUOTA}"/>
+											</HBox>
+											<HBox>
+												<Title text="{trainDataMaster>RETURN_DATE}"/>
+											</HBox>
+											<HBox>
+												<Title text="{trainDataMaster>PERSONS} Person,"/>
+												<Title text="{trainDataMaster>CLASS} Class"/>
+											</HBox>
+											<HBox>
+												<Title text="₹{trainDataMaster>PRICE}" titleStyle="H4"/>
+											</HBox>
+										</FlexBox>
+									</FlexBox>
+									<FlexBox direction="Column" justifyContent="Center">
+										<HBox>
+											<Button icon="sap-icon://edit" iconDensityAware="false" type="Transparent" press="onEditTrain"/>
+										</HBox>
+										<HBox>
+											<Button icon="sap-icon://delete" iconDensityAware="false" type="Transparent" press="onDeleteTrain"/>
+										</HBox>
+									</FlexBox>
+								</FlexBox>
+							</CustomListItem>
+						</items>
+					</List>
+				</Panel>
+			</FlexBox>
+		</content>
+	</Panel>
+</mvc:View>

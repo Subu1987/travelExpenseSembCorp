@@ -1,0 +1,94 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" controllerName="com.TitagarhTravel_Expence_Management.controller.tilePages.CreateTrip">
+	<Panel headerText="" class="sapUiResponsiveMargin border-lineRadius" width="95%">
+		<content>
+			<FlexBox width="100%" id="boxAcco" justifyContent="Center" direction="Column">
+				<FlexBox id="_box6" justifyContent="Start">
+					<HBox>
+						<RadioButtonGroup id="radioBtnAcco" columns="5" class="sapUiMediumMarginBottom" select="changeRadioBtnAcco">
+							<RadioButton id="selfArrange" text="Self Arrange Hotel"/>
+							<RadioButton id="guestHouse" text="Guest House"/>
+						</RadioButtonGroup>
+					</HBox>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox direction="Column" id="accoView" visible="true">
+				<!--<Text text="text"/>-->
+				<FlexBox width="100%" id="_nmacc" justifyContent="Center" direction="Column">
+					<!--<Text text="hello"/>-->
+					<items>
+						<HBox width="100%" justifyContent="End">
+							<Button icon="sap-icon://add" iconFirst="false" text="Add Hotels" press="addHotels" class="sapUiSmallMarginEnd btnRound smallIconForCreateTrip"/>
+						</HBox>
+					</items>
+				</FlexBox>
+				<Panel>
+					<List id="list" items="{hotelData>/hotels}">
+						<items>
+							<CustomListItem>
+								<FlexBox id="_ss6" justifyContent="SpaceAround" height="150px" direction="Row"
+									class="box-border sapUiMediumMarginBottom" fitContainer="true">
+									<FlexBox direction="Column" width="100%" justifyContent="SpaceAround" height="150px">
+										<FlexBox width="100%" direction="Column" alignContent="SpaceAround" justifyContent="Center" alignItems="Center">
+											<!--<HBox>
+												<Title text="#{}"/>
+											</HBox>-->
+											<FlexBox width="86%" direction="Column">
+												<HBox>
+													<Title text="{hotelData>NAME}," titleStyle="H2"/>
+													
+													<Title text=" {hotelData>LOCATION}" titleStyle="H2"/>
+													<core:Icon src="sap-icon://map" size="1.3rem"/>
+												</HBox>
+												<HBox>
+												    <core:Icon id="starIcon" src="sap-icon://favorite" size="0.9rem"/>
+												    <core:Icon src="sap-icon://favorite" size="0.9rem"/>
+												</HBox>
+												
+											</FlexBox>
+											<!--<HBox>
+												<core:Icon src="sap-icon://flight" size="2rem"/>
+											</HBox>-->
+											<!--<HBox>
+												<Title text="Kolkata" titleStyle="H2"/>
+											</HBox>-->
+										</FlexBox>
+										<FlexBox width="100%" justifyContent="SpaceAround">
+											<!--<HBox>
+												<Title text="{airline}" titleStyle="H4"/>
+											</HBox>-->
+											<HBox>
+												<Title text="Check in {hotelData>CHECK_IN}"/>
+											</HBox>
+											<!--<HBox>
+												<Title text="{stops}"/>
+											</HBox>-->
+											<HBox>
+												<Title text="Check out {hotelData>CHECK_OUT}"/>
+											</HBox>
+											<HBox>
+												<Title text="{hotelData>PERSONS} Person,"/>
+												<Title text="{hotelData>NO_OF_ROOMS} Room"/>
+											</HBox>
+											<HBox>
+												<Title text="₹{hotelData>PRICE}" titleStyle="H4"/>
+											</HBox>
+										</FlexBox>
+									</FlexBox>
+									<FlexBox direction="Column" justifyContent="Center">
+										<HBox>
+											<Button icon="sap-icon://edit" iconDensityAware="false" type="Transparent" press="onEditHotel"/>
+										</HBox>
+										<HBox>
+											<Button icon="sap-icon://delete" iconDensityAware="false" type="Transparent" press="onDeleteHotel"/>
+										</HBox>
+									</FlexBox>
+								</FlexBox>
+							</CustomListItem>
+						</items>
+					</List>
+				</Panel>
+			</FlexBox>
+		</content>
+	</Panel>
+</mvc:View>

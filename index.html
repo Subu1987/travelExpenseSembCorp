@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+
+  <title>Travel_Expence_Management</title>
+
+  <script id="sap-ui-bootstrap"
+    src="../resources/sap-ui-core.js"
+    data-sap-ui-libs="sap.m"
+    data-sap-ui-theme="sap_belize"
+    data-sap-ui-compatVersion="edge"
+    data-sap-ui-resourceroots='{"com.TitagarhTravel_Expence_Management": ""}'>
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+  <script>
+    sap.ui.getCore().attachInit(function() {
+      new sap.m.Shell({
+        app: new sap.ui.core.ComponentContainer({
+          height : "100%",
+          name : "com.TitagarhTravel_Expence_Management"
+        })
+      }).placeAt("content");
+
+      // Event listener for beforeunload
+      window.addEventListener("beforeunload", function () {
+        // Navigate to the Home Component
+        var oRouter = sap.ui.core.UIComponent.getRouterFor(sap.ui.getCore().byId("content").getComponent());
+        oRouter.navTo("home");
+      });
+    });
+  </script>
+</head>
+
+<body class="sapUiBody" id="content">
+</body>
+
+</html>

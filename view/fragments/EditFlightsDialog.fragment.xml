@@ -1,0 +1,75 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:b="sap.suite.ui.commons"
+	xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form">
+	<Dialog class="sapUiPopupWithPadding" title="Edit Flights" resizable="false" draggable="false" showHeader="true" horizontalScrolling="false"
+		contentWidth="650px">
+		<content>
+			<Panel class="border-lineRadius">
+				<content>
+					<FlexBox width="100%" id="editFlight" direction="Column" justifyContent="Center" backgroundDesign="Translucent">
+						<!--<Text text="hello"></Text>-->
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="fromEdit" placeholder="From Location" value="{flightDataMaster>/updateFlightData/DEPART_FROM}" class="roundInput" required="true"/>
+							</f:content>
+							<f:content>
+								<Input id="toEdit" placeholder="To location" value="{flightDataMaster>/updateFlightData/ARRIVE_AT}" class="roundInput" required="true"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<DatePicker id="deprtDEdit" displayFormat="short" valueFormat="yyyy-MM-dd" value="{flightDataMaster>/updateFlightData/DEPT_DATE}" class="round" placeholder="Departure Date"/>
+							</f:content>
+							<f:content>
+								<DatePicker id="returnDEdit" displayFormat="short" valueFormat="yyyy-MM-dd" value="{flightDataMaster>/updateFlightData/RETURN_DATE}" class="round" placeholder="Return Date"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="ticketNoEdit" placeholder="Ticket no." value="{flightDataMaster>/updateFlightData/TICKET_NO}"/>
+							</f:content>
+							<f:content>
+								<Input id="priceEdit" placeholder="Price Per Person" value="{flightDataMaster>/updateFlightData/PRICE}"/>
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Select id="cabinClassEdit" selectedKey="{flightDataMaster>/updateFlightData/CABIN_CLASS}" class="round">
+									<items>
+										<core:Item text="Choose Cabin Class" key=""/>
+										<core:Item text="Economy" key="Economy"/>
+										<core:Item text="Premium Economy" key="Premium Economy"/>
+										<core:Item text="Business" key="Business"/>
+									</items>
+								</Select>
+							</f:content>
+							<f:content>
+								<Input placeholder="No of Passenger" value="{flightDataMaster>/updateFlightData/PERSONS}" width="100%" type="Number" liveChange="onPassengerChange"/>
+								<!--<Label text="Passenger Count"/>-->
+								<!--<StepInput id="passengerInputEdit" step="1" min="0" max="10" value="{flightDataMaster>/updateFlightData/PERSONS}" width="100%" change="onPassengerChange"/>-->
+							</f:content>
+						</form:SimpleForm>
+						<form:SimpleForm editable="true">
+							<f:content>
+								<Input id="airlineEdit" placeholder="Airline Name" value="{flightDataMaster>/updateFlightData/AIRLINE_NAME}"/>
+							</f:content>
+							<f:content>
+								<Select id="stopsEdit" selectedKey="{flightDataMaster>/updateFlightData/STOPS}" class="round">
+									<items>
+										<core:Item text="Stops" key=""/>
+										<core:Item text="Non Stop" key="Non Stop"/>
+										<core:Item text="1 Stop" key="1 Stop"/>
+										<core:Item text="1+ Stop" key="1+ Stop"/>
+									</items>
+								</Select>
+							</f:content>
+						</form:SimpleForm>
+					</FlexBox>
+				</content>
+			</Panel>
+		</content>
+		<buttons>
+			<Button icon="" text="Update" press="updateFlights" type="Emphasized" class="sapUiSmallMarginEnd btnRound"/>
+			<Button text="Cancel" type="Emphasized" id="btnCae0" press="onCancelEditFlight"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
